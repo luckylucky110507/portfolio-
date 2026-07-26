@@ -1,0 +1,70 @@
+<svg width="920" height="920" viewBox="0 0 920 920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="920" y2="920" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#090728"/>
+      <stop offset="1" stop-color="#03021A"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="250" y1="130" x2="680" y2="770" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7F3BFF"/>
+      <stop offset="1" stop-color="#3E1596"/>
+    </linearGradient>
+    <linearGradient id="brain" x1="260" y1="330" x2="610" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFCFAC"/>
+      <stop offset="1" stop-color="#DA9B7A"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="440" y1="268" x2="480" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#57F2FF"/>
+      <stop offset="1" stop-color="#2BCEDB"/>
+    </linearGradient>
+    <filter id="glow" x="0" y="0" width="920" height="920" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="920" height="920" rx="28" fill="url(#bg)"/>
+
+  <g opacity="0.25">
+    <path d="M0 80H920M0 160H920M0 240H920M0 320H920M0 400H920M0 480H920M0 560H920M0 640H920M0 720H920M0 800H920" stroke="#3A2B75"/>
+    <path d="M80 0V920M160 0V920M240 0V920M320 0V920M400 0V920M480 0V920M560 0V920M640 0V920M720 0V920M800 0V920" stroke="#3A2B75"/>
+  </g>
+
+  <g filter="url(#glow)">
+    <rect x="234" y="116" width="452" height="590" rx="12" fill="none" stroke="url(#frame)" stroke-width="28"/>
+    <rect x="266" y="148" width="388" height="526" rx="6" fill="none" stroke="#251057" stroke-width="8"/>
+
+    <path d="M460 270L540 322V530H380V322L460 270Z" fill="#0E5C76" opacity="0.9"/>
+    <ellipse cx="460" cy="452" rx="190" ry="144" fill="url(#brain)"/>
+
+    <path d="M290 454C338 418 393 408 441 418M338 520C391 488 447 488 502 514M430 342C482 330 533 354 564 392M278 510C300 548 338 574 390 590" stroke="#C88772" stroke-width="8" stroke-linecap="round" opacity="0.55"/>
+    <path d="M352 404L378 430L360 466L396 496M470 398L492 430L474 462L514 490" stroke="#3BE9FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+
+    <rect x="422" y="232" width="76" height="98" rx="6" fill="#E66AD2"/>
+    <rect x="446" y="300" width="28" height="64" rx="4" fill="url(#beam)"/>
+    <rect x="406" y="308" width="42" height="42" rx="6" fill="#DFE7FF"/>
+  </g>
+
+  <g opacity="0.9">
+    <rect x="684" y="352" width="96" height="148" rx="10" fill="#28175A"/>
+    <circle cx="717" cy="528" r="9" fill="#36E7FF"/>
+    <circle cx="749" cy="528" r="9" fill="#8A58FF"/>
+    <rect x="697" y="366" width="68" height="120" rx="6" fill="#0B133D"/>
+    <g opacity="0.9">
+      <circle cx="709" cy="378" r="3" fill="#36E7FF"/>
+      <circle cx="725" cy="378" r="3" fill="#36E7FF"/>
+      <circle cx="741" cy="378" r="3" fill="#36E7FF"/>
+      <circle cx="757" cy="378" r="3" fill="#36E7FF"/>
+      <circle cx="709" cy="394" r="3" fill="#36E7FF"/>
+      <circle cx="725" cy="394" r="3" fill="#36E7FF"/>
+      <circle cx="741" cy="394" r="3" fill="#36E7FF"/>
+      <circle cx="757" cy="394" r="3" fill="#36E7FF"/>
+      <circle cx="709" cy="410" r="3" fill="#36E7FF"/>
+      <circle cx="725" cy="410" r="3" fill="#36E7FF"/>
+      <circle cx="741" cy="410" r="3" fill="#36E7FF"/>
+      <circle cx="757" cy="410" r="3" fill="#36E7FF"/>
+    </g>
+  </g>
+</svg>
