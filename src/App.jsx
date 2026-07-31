@@ -622,16 +622,19 @@ function ContactForm() {
 }
 
 /* ── Typewriter (types lines one-by-one, letter by letter) ── */
-function useTypewriter(lines, { speed = 55, startDelay = 300, lineDelay = 450 } = {}) {
+function useTypewriter(lines, { speed = 100, startDelay = 300, lineDelay = 600, loop = true, pauseAtEnd = 0, pauseBeforeRestart = 300, start = true } = {}) {
   const [displayed, setDisplayed] = useState(() => lines.map(() => ''))
   const [activeIndex, setActiveIndex] = useState(0)
   const [isDone, setIsDone] = useState(false)
 
   useEffect(() => {
+    if (!start) return
     let cancelled = false
     const wait = ms => new Promise(res => setTimeout(res, ms))
 
-    async function run() {
+    async function typeOnce() {
+      setIsDone(false)
+      setDisplayed(lines.map(() => ''))
       await wait(startDelay)
       for (let li = 0; li < lines.length; li++) {
         if (cancelled) return
@@ -650,17 +653,29 @@ function useTypewriter(lines, { speed = 55, startDelay = 300, lineDelay = 450 } 
       }
       if (!cancelled) setIsDone(true)
     }
+
+    async function run() {
+      do {
+        await typeOnce()
+        if (cancelled) return
+        if (loop) {
+          await wait(pauseAtEnd)
+          if (cancelled) return
+          await wait(pauseBeforeRestart)
+        }
+      } while (loop && !cancelled)
+    }
     run()
     return () => { cancelled = true }
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [start]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return { displayed, activeIndex, isDone }
 }
 
 /* ── Hero greeting + name, typed one-by-one ── */
-function HeroTypewriterGreeting() {
+function HeroTypewriterGreeting({ start }) {
   const lines = ['Hi, I am', 'Lucky Kumari']
-  const { displayed, activeIndex, isDone } = useTypewriter(lines)
+  const { displayed, activeIndex, isDone } = useTypewriter(lines, { start })
 
   return (
     <>
@@ -669,9 +684,7 @@ function HeroTypewriterGreeting() {
         {activeIndex === 0 && !isDone && <span className="tw-cursor" aria-hidden="true">|</span>}
       </div>
       <div className="hero-name">
-        <span className="brace">{'{'}</span>
         {displayed[1]}
-        <span className="brace">{'}'}</span>
         {(activeIndex === 1 || isDone) && <span className="tw-cursor" aria-hidden="true">|</span>}
       </div>
     </>
@@ -778,7 +791,7 @@ export default function App() {
             ))}
           </div>
           <div className="hero-content">
-            <HeroTypewriterGreeting />
+            <HeroTypewriterGreeting start={!showSplash} />
             <HeroRoles />
             <p className="hero-desc">
               Results-driven AI/ML enthusiast building end-to-end ML solutions, NLP applications,
