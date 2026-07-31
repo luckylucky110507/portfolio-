@@ -312,6 +312,20 @@
   opacity: .7;
 }
 
+.tw-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--purple-light, #c4b5fd);
+  -webkit-text-fill-color: var(--purple-light, #c4b5fd);
+  font-weight: 300;
+  animation: twBlink 0.9s steps(1) infinite;
+}
+
+@keyframes twBlink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
 .hero-tags {
   display: flex;
   flex-wrap: wrap;
