@@ -621,6 +621,63 @@ function ContactForm() {
   )
 }
 
+/* ── Typewriter (types lines one-by-one, letter by letter) ── */
+function useTypewriter(lines, { speed = 55, startDelay = 300, lineDelay = 450 } = {}) {
+  const [displayed, setDisplayed] = useState(() => lines.map(() => ''))
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [isDone, setIsDone] = useState(false)
+
+  useEffect(() => {
+    let cancelled = false
+    const wait = ms => new Promise(res => setTimeout(res, ms))
+
+    async function run() {
+      await wait(startDelay)
+      for (let li = 0; li < lines.length; li++) {
+        if (cancelled) return
+        setActiveIndex(li)
+        const text = lines[li]
+        for (let ci = 0; ci <= text.length; ci++) {
+          if (cancelled) return
+          setDisplayed(prev => {
+            const next = [...prev]
+            next[li] = text.slice(0, ci)
+            return next
+          })
+          await wait(speed)
+        }
+        await wait(lineDelay)
+      }
+      if (!cancelled) setIsDone(true)
+    }
+    run()
+    return () => { cancelled = true }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  return { displayed, activeIndex, isDone }
+}
+
+/* ── Hero greeting + name, typed one-by-one ── */
+function HeroTypewriterGreeting() {
+  const lines = ['Hi, I am', 'Lucky Kumari']
+  const { displayed, activeIndex, isDone } = useTypewriter(lines)
+
+  return (
+    <>
+      <div className="hero-greeting">
+        {displayed[0]}
+        {activeIndex === 0 && !isDone && <span className="tw-cursor" aria-hidden="true">|</span>}
+      </div>
+      <div className="hero-name">
+        <span className="brace">{'{'}</span>
+        {displayed[1]}
+        <span className="brace">{'}'}</span>
+        {(activeIndex === 1 || isDone) && <span className="tw-cursor" aria-hidden="true">|</span>}
+      </div>
+    </>
+  )
+}
+
 /* ── Animated Hero Roles ── */
 const ROLES = ['CSE Student', 'AIML Enthusiast', 'Python Developer', 'ML Engineer']
 function HeroRoles() {
@@ -721,10 +778,7 @@ export default function App() {
             ))}
           </div>
           <div className="hero-content">
-            <div className="hero-greeting">Hi, I am</div>
-            <div className="hero-name">
-              <span className="brace">{'{'}</span>Lucky Kumari<span className="brace">{'}'}</span>
-            </div>
+            <HeroTypewriterGreeting />
             <HeroRoles />
             <p className="hero-desc">
               Results-driven AI/ML enthusiast building end-to-end ML solutions, NLP applications,
