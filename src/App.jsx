@@ -37,6 +37,7 @@ function Reveal({ children, delay = 0, className = '' }) {
     </div>
   )
 }
+
 /* ── Currently Exploring ── */
 const exploring = [
   {
@@ -136,6 +137,7 @@ const skills = [
     logo: <svg viewBox="0 0 24 24"><path fill="#e37933" d="M3 20h2v-8H3v8zm4 0h2V9H7v11zm4 0h2V4h-2v16zm4 0h2v-6h-2v6zm4 0h2v-10h-2v10z" /></svg>
   },
 ]
+
 
 /* ── Neural network nodes ── */
 const nodes = [
@@ -264,6 +266,7 @@ const aiProjects = [
     url: 'https://github.com/luckylucky110507/House-Price-Prediction-Kaggle', demo: null, color: '#22c55e', icon: '🏠', image: null
   },
 ]
+
 /* ── Certifications ── */
 const certifications = [
   { title: 'Introduction to AI Concepts', issuer: 'Microsoft', date: 'Sep 11, 2025', image: '/certifications/microsoft-intro-ai.jpg' },
@@ -304,7 +307,7 @@ const experience = [
 const BOT_QA = [
   { q: /hi|hello|hey/i, a: "Hi there! 👋 I'm Lucky's AI. Ask me about her skills, projects, or how to reach her!" },
   { q: /skill|tech|stack|know/i, a: "Lucky is skilled in Python, ML, NLP, SQL, Power BI, Java, Scikit-learn, Streamlit, Pandas, NumPy, Git & Jupyter! 🚀" },
-  { q: /project/i, a: "Lucky has 5+ AI/ML projects — Fake News Detector (96.81% accuracy), House Price Prediction, Voice SQL Agent, Movie Recommender & more! 🎯" },
+  { q: /project/i, a: "Lucky has 6 AI/ML projects — PDF to eCourse (AI course generator), Fake News Detector (96.81% accuracy), Voice SQL Agent, Movie Recommender, Movie Success Prediction & House Price Prediction! 🎯" },
   { q: /edu|college|univer|study/i, a: "B.Tech CSE at IIMT University, Greater Noida (2023–2027) · SGPA: 8.46/10 🎓" },
   { q: /intern|work|experience/i, a: "Lucky interned at Codomax Digital Solutions (AI & ML, Jul–Aug 2026), CodTech IT Solutions (Full Stack, Aug–Oct 2025) & Codsoft (AI, Jul–Aug 2025) 💼" },
   { q: /cert/i, a: "12+ certs from Microsoft, Oracle, Google, IBM, NPTEL, Infosys Springboard! 📜" },
@@ -840,7 +843,7 @@ export default function App() {
             <div className="bio-strip-inner">
               <div className="bio-stat"><span className="bio-num">8.46</span><span className="bio-label">SGPA</span></div>
               <div className="bio-div" />
-              <div className="bio-stat"><span className="bio-num">5+</span><span className="bio-label">AI/ML Projects</span></div>
+              <div className="bio-stat"><span className="bio-num">6+</span><span className="bio-label">AI/ML Projects</span></div>
               <div className="bio-div" />
               <div className="bio-stat"><span className="bio-num">12+</span><span className="bio-label">Certifications</span></div>
               <div className="bio-div" />
@@ -877,7 +880,7 @@ export default function App() {
                 {[
                   { icon: '🎓', title: 'Education', val: 'B.Tech CSE (2023–2027)' },
                   { icon: '🤖', title: 'Internship', val: 'AI & ML Intern' },
-                  { icon: '💻', title: 'Projects', val: '5 AI/ML Projects' },
+                  { icon: '💻', title: 'Projects', val: '6+ AI/ML Projects' },
                   { icon: '📄', title: 'Research', val: 'Published Research Paper' },
                   { icon: '🏆', title: 'Certifications', val: 'Multiple Industry Certifications' },
                 ].map(c => (
@@ -913,17 +916,24 @@ export default function App() {
           </div>
         </div>
 
-        {/* ── CURRENTLY LEARNING ── */}
-        <Reveal>
-          <div className="learning-strip">
-            <span className="learning-label">Currently Learning</span>
-            <div className="learning-tags">
-              {['Deep Learning', 'OpenCV', 'MLOps', 'Generative AI', 'Advanced Computer Vision'].map(t => (
-                <span key={t} className="learning-tag">{t}</span>
+        {/* ── CURRENTLY EXPLORING ── */}
+        <div className="exploring-section">
+          <div className="exploring-inner">
+            <Reveal><p className="section-label">Learning Path</p></Reveal>
+            <Reveal delay={80}><h2 className="section-heading">Currently Exploring</h2></Reveal>
+            <Reveal delay={120}><p className="section-sub">Technologies and techniques I'm actively learning and experimenting with.</p></Reveal>
+            <div className="exploring-badges-grid">
+              {exploring.map((exp, i) => (
+                <Reveal key={exp.name} delay={i * 40}>
+                  <div className="skill-badge exploring-badge" style={{ '--sc': exp.color, '--sb': exp.bg }}>
+                    <div className="skill-badge-logo">{exp.logo}</div>
+                    <span className="skill-badge-name">{exp.name}</span>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>
-        </Reveal>
+        </div>
 
         {/* ── PROJECTS (AI/ML — primary) ── */}
         <section id="projects" className="section">
@@ -933,9 +943,14 @@ export default function App() {
           <div className="project-grid">
             {aiProjects.map((p, i) => (
               <Reveal key={p.name} delay={i * 60}>
-                <article className="project-card">
-                  <div className="project-thumb" style={{ background: `linear-gradient(135deg,${p.color}18,${p.color}38)` }}>
-                    <span className="project-emoji">{p.icon}</span>
+                <article className="project-card" style={{ '--accent-glow': p.color + '55', '--accent-border': p.color + '80' }}>
+                  <div className={`project-thumb ${p.image ? 'has-image' : ''}`} style={!p.image ? { background: `linear-gradient(135deg,${p.color}22,${p.color}42)` } : undefined}>
+                    {p.image ? (
+                      <img src={p.image} alt={p.name} className="project-thumb-img" />
+                    ) : (
+                      <span className="project-emoji">{p.icon}</span>
+                    )}
+                    {p.demo && <span className="live-badge"><span className="live-dot" />Live</span>}
                     <div className="thumb-bar">
                       <span style={{ background: '#ef4444' }} /><span style={{ background: '#f59e0b' }} /><span style={{ background: '#22c55e' }} />
                     </div>
@@ -944,37 +959,16 @@ export default function App() {
                     <h3>{p.name}</h3><p>{p.desc}</p>
                     <div className="project-tags">{p.stack.map(t => <span key={t} className="project-tag">{t}</span>)}</div>
                     <div className="project-links">
-                      <a href={p.url} target="_blank" rel="noreferrer">View →</a>
-                      <a href={p.url} target="_blank" rel="noreferrer">Code</a>
-                    </div>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
-        {/* ── OTHER DEVELOPMENT PROJECTS ── */}
-        <section className="section">
-          <Reveal><p className="section-label">More Work</p></Reveal>
-          <Reveal delay={80}><h2 className="section-heading">Other Development Projects</h2></Reveal>
-          <Reveal delay={120}><p className="section-sub">Full-stack and integration projects outside the AI/ML track.</p></Reveal>
-          <div className="project-grid">
-            {otherProjects.map((p, i) => (
-              <Reveal key={p.name} delay={i * 60}>
-                <article className="project-card">
-                  <div className="project-thumb" style={{ background: `linear-gradient(135deg,${p.color}18,${p.color}38)` }}>
-                    <span className="project-emoji">{p.icon}</span>
-                    <div className="thumb-bar">
-                      <span style={{ background: '#ef4444' }} /><span style={{ background: '#f59e0b' }} /><span style={{ background: '#22c55e' }} />
-                    </div>
-                  </div>
-                  <div className="project-info">
-                    <h3>{p.name}</h3><p>{p.desc}</p>
-                    <div className="project-tags">{p.stack.map(t => <span key={t} className="project-tag">{t}</span>)}</div>
-                    <div className="project-links">
-                      <a href={p.url} target="_blank" rel="noreferrer">View →</a>
-                      <a href={p.url} target="_blank" rel="noreferrer">Code</a>
+                      {p.demo && (
+                        <a href={p.demo} target="_blank" rel="noreferrer" className="proj-btn proj-btn-filled" style={{ background: p.color }}>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM5 5h6V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6h-2v6H5V5z" /></svg>
+                          Live Demo
+                        </a>
+                      )}
+                      <a href={p.url} target="_blank" rel="noreferrer" className="proj-btn proj-btn-outline">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg>
+                        Code
+                      </a>
                     </div>
                   </div>
                 </article>
