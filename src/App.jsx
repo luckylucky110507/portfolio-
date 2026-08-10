@@ -37,6 +37,41 @@ function Reveal({ children, delay = 0, className = '' }) {
     </div>
   )
 }
+/* ── Currently Exploring ── */
+const exploring = [
+  {
+    name: 'Deep Learning', color: '#ff6b35', bg: '#4d1f0a',
+    logo: <svg viewBox="0 0 24 24"><path fill="#ff6b35" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" /></svg>
+  },
+  {
+    name: 'OpenCV', color: '#5b9bd5', bg: '#1a2f42',
+    logo: <svg viewBox="0 0 24 24"><path fill="#5b9bd5" d="M3 5v14h18V5H3zm2 2h14v10H5V7zm4 2v4h2v-4H9zm3 0v4h2v-4h-2zm3 0v4h2v-4h-2z" /></svg>
+  },
+  {
+    name: 'MLOps', color: '#2eb67d', bg: '#0f3d25',
+    logo: <svg viewBox="0 0 24 24"><path fill="#2eb67d" d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 2.18l8 4.04v9.78c0 4.42-2.84 8.54-7 10.08-4.16-1.54-7-5.66-7-10.08V8.22l6-4.04zM8 11.5h8v2H8z" /></svg>
+  },
+  {
+    name: 'Generative AI', color: '#9370db', bg: '#3d1a5c',
+    logo: <svg viewBox="0 0 24 24"><path fill="#9370db" d="M13 13h-2v-2h2v2zm-4 6h2v-2h-2v2zm4-6h2v-2h-2v2zm4 6h2v-2h-2v2zm0-6h2v-2h-2v2zm-8-6h2V5h-2v2zm8 0h2V5h-2v2zM8 5h2V3H8v2zm8 18h2v-2h-2v2zm-12 0h2v-2H4v2z" /></svg>
+  },
+  {
+    name: 'Computer Vision', color: '#f39c12', bg: '#4a2600',
+    logo: <svg viewBox="0 0 24 24"><path fill="#f39c12" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" /></svg>
+  },
+  {
+    name: 'Transformers', color: '#e74c3c', bg: '#4a1a1a',
+    logo: <svg viewBox="0 0 24 24"><path fill="#e74c3c" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V5h2v12zm4 0h-2v-5h2v5z" /></svg>
+  },
+  {
+    name: 'Reinforcement Learning', color: '#1abc9c', bg: '#0d3d35',
+    logo: <svg viewBox="0 0 24 24"><path fill="#1abc9c" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" /></svg>
+  },
+  {
+    name: 'LLM Fine-tuning', color: '#3498db', bg: '#0d1f3d',
+    logo: <svg viewBox="0 0 24 24"><path fill="#3498db" d="M19 2H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5 18H7v-2h7v2zm5-4H5V4h14v12z" /></svg>
+  },
+]
 
 /* ── Skills ── */
 const skills = [
@@ -101,7 +136,6 @@ const skills = [
     logo: <svg viewBox="0 0 24 24"><path fill="#e37933" d="M3 20h2v-8H3v8zm4 0h2V9H7v11zm4 0h2V4h-2v16zm4 0h2v-6h-2v6zm4 0h2v-10h-2v10z" /></svg>
   },
 ]
-
 
 /* ── Neural network nodes ── */
 const nodes = [
@@ -200,56 +234,36 @@ const edges = [
 /* ── AI/ML Projects (primary) ── */
 const aiProjects = [
   {
-    name: 'Fake News Detection', stack: ['Python', 'Scikit-learn', 'TF-IDF', 'Logistic Regression', 'Streamlit'],
-    desc: 'Built an NLP-based fake news classifier trained on 44,898 news articles using TF-IDF vectorization and Logistic Regression, reaching 96.81% accuracy. Deployed as a live Streamlit web app for real-time predictions.',
-    url: 'https://github.com/luckylucky110507/fake-news-detection', color: '#3b82f6', icon: '📰'
+    name: 'PDF to eCourse', stack: ['Next.js 16', 'TypeScript', 'Groq (Llama 3.3 70B)', 'Supabase', 'NextAuth.js', 'Tailwind CSS'],
+    desc: 'AI platform that turns any PDF into a full interactive course — chapters, topics & lessons auto-structured by Llama 3.3, with progress tracking, an AI tutor chatbot, auto-generated quizzes, full-text search and one-click summaries.',
+    url: 'https://github.com/luckylucky110507/-pdf-to-ecourse', demo: 'https://pdf-to-ecourse-platform-three.vercel.app/', color: '#22d3ee', icon: '📚', image: '/projects/pdf-to-ecourse.png'
   },
   {
-    name: 'House Price Prediction', stack: ['Python', 'Pandas', 'Scikit-learn', 'Random Forest', 'Linear Regression', 'GridSearchCV'],
-    desc: 'Built and compared Linear Regression, Ridge Regression, and Random Forest models to predict house prices. Performed feature engineering and hyperparameter tuning, evaluating performance with MAE, RMSE, and R² Score.',
-    url: 'https://github.com/luckylucky110507/House-Price-Prediction-Kaggle', color: '#22c55e', icon: '🏠'
+    name: 'Fake News Detection', stack: ['Python', 'Scikit-learn', 'TF-IDF', 'Logistic Regression', 'Streamlit'],
+    desc: 'Built an NLP-based fake news classifier trained on 44,898 news articles using TF-IDF vectorization and Logistic Regression, reaching 96.81% accuracy. Deployed as a live Streamlit web app for real-time predictions.',
+    url: 'https://github.com/luckylucky110507/fake-news-detection', demo: 'https://fake-news-detection-i6ke2c9ihsht66ljjenezq.streamlit.app/', color: '#3b82f6', icon: '📰', image: '/projects/fake-news-detection.png'
   },
   {
     name: 'Voice SQL Insight Agent', stack: ['Python', 'Flask', 'SQL', 'NLP', 'Speech Recognition'],
     desc: 'Developed an AI-powered voice-enabled SQL assistant that converts natural-language questions into schema-validated, read-only SQL queries using speech recognition and NLP.',
-    url: 'https://github.com/luckylucky110507/voice-sql-insight-agent', color: '#f59e0b', icon: '🎙️'
+    url: 'https://github.com/luckylucky110507/voice-sql-insight-agent', demo: 'https://voice-sql-insight-agent.vercel.app/', color: '#f59e0b', icon: '🎙️', image: '/projects/voice-sql-insight-agent.png'
   },
   {
     name: 'Movie Recommendation System', stack: ['Python', 'TF-IDF', 'Cosine Similarity'],
     desc: 'Built a content-based recommendation engine using TF-IDF and Cosine Similarity to suggest movies across a dataset of 1,300+ Hollywood and Bollywood films.',
-    url: 'https://github.com/luckylucky110507/Movie-Recommendation-System', color: '#ef4444', icon: '🎥'
+    url: 'https://github.com/luckylucky110507/Movie-Recommendation-System', demo: 'https://movie-recommendation-system-fqbmpdribti7z4tifzfurl.streamlit.app/', color: '#ef4444', icon: '🎥', image: '/projects/movie-recommendation-system.png'
   },
   {
     name: 'Movie Success Prediction', stack: ['Python', 'Scikit-learn', 'Logistic Regression', 'Naive Bayes', 'SVM', 'GridSearchCV'],
     desc: 'Built classification models with Logistic Regression, Naive Bayes, and SVM to predict movie box-office success, optimizing performance with GridSearchCV.',
-    url: 'https://github.com/luckylucky110507/Movie-Success-Prediction', color: '#a855f7', icon: '🎬'
+    url: 'https://github.com/luckylucky110507/Movie-Success-Prediction', demo: null, color: '#a855f7', icon: '🎬', image: '/projects/movie-success-prediction.png'
+  },
+  {
+    name: 'House Price Prediction', stack: ['Python', 'Pandas', 'Scikit-learn', 'Random Forest', 'Linear Regression', 'GridSearchCV'],
+    desc: 'Built and compared Linear Regression, Ridge Regression, and Random Forest models to predict house prices. Performed feature engineering and hyperparameter tuning, evaluating performance with MAE, RMSE, and R² Score.',
+    url: 'https://github.com/luckylucky110507/House-Price-Prediction-Kaggle', demo: null, color: '#22c55e', icon: '🏠', image: null
   },
 ]
-
-/* ── Other Development Projects (non-AI) ── */
-const otherProjects = [
-  {
-    name: 'Real-Time Chat Application', stack: ['WebSocket', 'JavaScript', 'Node.js'],
-    desc: 'Real-time messaging app supporting 50+ concurrent users using WebSocket connections.',
-    url: 'https://github.com/luckylucky110507/Chat-Application', color: '#8b5cf6', icon: '💬'
-  },
-  {
-    name: 'Collaborative Document Editor', stack: ['WebSocket', 'JavaScript', 'Node.js'],
-    desc: 'Multi-user document editor with conflict-resolution logic enabling simultaneous edits.',
-    url: 'https://github.com/luckylucky110507/Real-Time-Collaborative-Document-Editor', color: '#06b6d4', icon: '📝'
-  },
-  {
-    name: 'Weather Application', stack: ['REST API', 'JavaScript', 'HTML', 'CSS'],
-    desc: 'Live weather-data display built with a third-party REST API and a responsive UI.',
-    url: 'https://github.com/luckylucky110507/Weather-API-Integration', color: '#8b5cf6', icon: '🌤️'
-  },
-  {
-    name: 'Chrome Productivity Tracker', stack: ['JavaScript', 'Chrome Extension API'],
-    desc: 'Browser extension that tracks time spent on sites to help users monitor productivity.',
-    url: 'https://github.com/luckylucky110507/productivity-analyzer-chrome-extension', color: '#f59e0b', icon: '🧩'
-  },
-]
-
 /* ── Certifications ── */
 const certifications = [
   { title: 'Introduction to AI Concepts', issuer: 'Microsoft', date: 'Sep 11, 2025', image: '/certifications/microsoft-intro-ai.jpg' },
