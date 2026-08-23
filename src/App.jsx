@@ -308,7 +308,7 @@ const BOT_QA = [
   { q: /hi|hello|hey/i, a: "Hi there! 👋 I'm Lucky's AI. Ask me about her skills, projects, or how to reach her!" },
   { q: /skill|tech|stack|know/i, a: "Lucky is skilled in Python, ML, NLP, SQL, Power BI, Java, Scikit-learn, Streamlit, Pandas, NumPy, Git & Jupyter! 🚀" },
   { q: /project/i, a: "Lucky has 6 AI/ML projects — PDF to eCourse (AI course generator), Fake News Detector (96.81% accuracy), Voice SQL Agent, Movie Recommender, Movie Success Prediction & House Price Prediction! 🎯" },
-  { q: /edu|college|univer|study/i, a: "B.Tech CSE at IIMT University, Greater Noida (2023–2027) · SGPA: 8.46/10 🎓" },
+  { q: /edu|college|univer|study/i, a: "B.Tech CSE at IIMT University, Greater Noida (2023–2027) · SGPA: 8.81/10 🎓" },
   { q: /intern|work|experience/i, a: "Lucky interned at Codomax Digital Solutions (AI & ML, Jul–Aug 2026), CodTech IT Solutions (Full Stack, Aug–Oct 2025) & Codsoft (AI, Jul–Aug 2025) 💼" },
   { q: /cert/i, a: "12+ certs from Microsoft, Oracle, Google, IBM, NPTEL, Infosys Springboard! 📜" },
   { q: /research|paper/i, a: "Co-authored an LSTM paper on Assamese offensive comment detection — IRJCS Vol.12, Dec 2025 📄" },
@@ -317,7 +317,7 @@ const BOT_QA = [
   { q: /linkedin/i, a: "LinkedIn → linkedin.com/in/lucky-kumari-3b83a2364 🔗" },
   { q: /instagram/i, a: "Instagram → @k11_lucky 📸" },
   { q: /resume|cv/i, a: "Hit ⬇ Resume in the navbar to download Lucky's CV! 📄" },
-  { q: /sgpa|gpa|grade/i, a: "SGPA 8.46/10 at IIMT University 🏆" },
+  { q: /sgpa|gpa|grade/i, a: "SGPA 8.81/10 at IIMT University 🏆" },
   { q: /python|hackerrank/i, a: "Lucky holds a Golden Badge in Python on HackerRank 🐍" },
   { q: /learn|currently/i, a: "Currently leveling up in Deep Learning, OpenCV, MLOps, Generative AI & Advanced Computer Vision 📈" },
 ]
@@ -841,7 +841,7 @@ export default function App() {
         <Reveal>
           <div className="bio-strip">
             <div className="bio-strip-inner">
-              <div className="bio-stat"><span className="bio-num">8.46</span><span className="bio-label">SGPA</span></div>
+              <div className="bio-stat"><span className="bio-num">8.81</span><span className="bio-label">SGPA</span></div>
               <div className="bio-div" />
               <div className="bio-stat"><span className="bio-num">6+</span><span className="bio-label">AI/ML Projects</span></div>
               <div className="bio-div" />
@@ -879,7 +879,6 @@ export default function App() {
               <div className="about-cards">
                 {[
                   { icon: '🎓', title: 'Education', val: 'B.Tech CSE (2023–2027)' },
-                  { icon: '🤖', title: 'Internship', val: 'AI & ML Intern' },
                   { icon: '💻', title: 'Projects', val: '6+ AI/ML Projects' },
                   { icon: '📄', title: 'Research', val: 'Published Research Paper' },
                   { icon: '🏆', title: 'Certifications', val: 'Multiple Industry Certifications' },
