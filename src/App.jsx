@@ -11,7 +11,7 @@ const profile = {
   github: 'https://github.com/luckylucky110507',
   instagram: 'https://www.instagram.com/k11_lucky',
   location: 'Delhi/NCR, India',
-  resumeUrl: '/resume.pdf',
+  resumeUrl: 'Resume Lucky.pdf',
   photo: '/profile.jpeg',
 }
 
@@ -1152,4 +1152,3 @@ export default function App() {
     </>
   )
 }
-
