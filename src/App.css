@@ -1662,14 +1662,15 @@ body {
 /* ── Detailed publication cards ── */
 .pub-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 24px;
 }
 
 .pub-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 14px;
+  position: relative;
+  background: linear-gradient(160deg, rgba(124, 58, 237, .10), var(--bg2) 55%);
+  border: 1px solid rgba(124, 58, 237, .22);
+  border-radius: 16px;
   padding: 28px;
   box-shadow: 0 20px 56px rgba(0, 0, 0, .35);
   transition: transform .4s, border-color .3s, box-shadow .4s;
@@ -1677,8 +1678,8 @@ body {
 
 .pub-card:hover {
   transform: translateY(-10px);
-  border-color: rgba(124, 58, 237, .4);
-  box-shadow: 0 40px 80px rgba(0, 0, 0, .55), 0 0 40px rgba(124, 58, 237, .15);
+  border-color: rgba(124, 58, 237, .5);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, .55), 0 0 40px rgba(124, 58, 237, .2);
 }
 
 .pub-head {
@@ -1772,6 +1773,11 @@ body {
   font-size: .76rem;
   font-weight: 600;
   color: var(--purple-light);
+}
+
+.pub-card .research-pdf-btns {
+  border-top: 1px solid rgba(124, 58, 237, .15);
+  padding-top: 16px;
 }
 
 /* ═══════════════════════════════════════
@@ -2834,8 +2840,4 @@ footer {
   .exploring-section {
     padding: 50px 16px;
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> d5db389c72d62aec623375697f56499edbc20d14
