@@ -281,6 +281,35 @@ const certifications = [
   { title: 'Technology Job Simulation', issuer: 'Deloitte', date: 'Jul 3, 2025', image: '/certifications/deloitte-tech-sim.jpg' },
   { title: 'Programming in Java (Elite)', issuer: 'NPTEL - IIT Kharagpur', date: 'Jul-Oct 2025', note: '82%', image: '/certifications/nptel-java-elite.jpg' },
   { title: 'Machine Learning using Python', issuer: 'Infosys Springboard', date: 'Oct 29, 2025', image: '/certifications/infosys-ml-python.jpg' },
+  { title: "QuizOff 2026: India's Biggest AI Quiz", issuer: 'CampusCrew (Unstop)', date: 'Jul 19, 2026', image: '/certifications/unstop-quizoff-2026.png' },
+  { title: 'Gen AI — NASSCOM Skill Development Program', issuer: 'SFJ', date: 'Mar 10, 2026', image: '/certifications/sfj-genai-nasscom.jpg' },
+  { title: 'Workshop on AI & ML', issuer: 'CETPA - IIMT University, Greater Noida', date: 'Jan 5, 2026', image: '/certifications/cetpa-ai-ml-workshop.jpg' },
+  { title: 'Advance Internet of Things (IoT)', issuer: 'Technoledge Eduresearch - IIMT University', date: 'Training Program', image: '/certifications/technoledge-iot.jpg' },
+  { title: 'SQL (Basic)', issuer: 'HackerRank', date: 'Nov 21, 2025', image: '/certifications/hackerrank-sql-basic.png' },
+]
+
+/* ── Publications ── */
+const publications = [
+  {
+    title: 'Efficient Detection of Offensive Social Media Comments in Assamese Language Using LSTM',
+    status: 'Published',
+    venue: 'IRJCS, Volume 12, Issue 12',
+    role: 'Co-Author',
+    date: 'December 2025',
+    categories: ['AI', 'NLP', 'Deep Learning'],
+    authors: 'Komal Kumar, Lucky Kumari, Kritansh Pandey, Dr. Shivani Dubey, Neha Gupta, Vikas Yadav',
+    desc: 'An LSTM-based deep learning approach to automatically detect offensive comments in Assamese-language social media text, tackling the challenge of moderating harmful content in a low-resource regional language.',
+    // TODO: replace with your actual reported metrics from the paper
+    stats: [
+      { label: 'Accuracy', value: '—' },
+      { label: 'Precision', value: '—' },
+      { label: 'Recall', value: '—' },
+      { label: 'F1-Score', value: '—' },
+    ],
+    tags: ['LSTM', 'NLP', 'Python', 'TensorFlow/Keras'],
+    doi: 'https://doi.org/10.26562/irjcs.2025.v1212.08',
+    pdf: '/research paper.pdf',
+  },
 ]
 
 /* ── Experience ── */
@@ -310,7 +339,7 @@ const BOT_QA = [
   { q: /project/i, a: "Lucky has 6 AI/ML projects — PDF to eCourse (AI course generator), Fake News Detector (96.81% accuracy), Voice SQL Agent, Movie Recommender, Movie Success Prediction & House Price Prediction! 🎯" },
   { q: /edu|college|univer|study/i, a: "B.Tech CSE at IIMT University, Greater Noida (2023–2027) · SGPA: 8.81/10 🎓" },
   { q: /intern|work|experience/i, a: "Lucky interned at Codomax Digital Solutions (AI & ML, Jul–Aug 2026), CodTech IT Solutions (Full Stack, Aug–Oct 2025) & Codsoft (AI, Jul–Aug 2025) 💼" },
-  { q: /cert/i, a: "12+ certs from Microsoft, Oracle, Google, IBM, NPTEL, Infosys Springboard! 📜" },
+  { q: /cert/i, a: "17+ certs from Microsoft, Oracle, Google, IBM, NPTEL, Infosys Springboard, HackerRank, CETPA & more! 📜" },
   { q: /research|paper/i, a: "Co-authored an LSTM paper on Assamese offensive comment detection — IRJCS Vol.12, Dec 2025 📄" },
   { q: /contact|email|phone/i, a: "📧 kumarilucky01437@gmail.com\n📞 +91-7827843321\n📍 Delhi/NCR, India" },
   { q: /github/i, a: "GitHub → github.com/luckylucky110507 🐙" },
@@ -845,7 +874,7 @@ export default function App() {
               <div className="bio-div" />
               <div className="bio-stat"><span className="bio-num">6+</span><span className="bio-label">AI/ML Projects</span></div>
               <div className="bio-div" />
-              <div className="bio-stat"><span className="bio-num">12+</span><span className="bio-label">Certifications</span></div>
+              <div className="bio-stat"><span className="bio-num">17+</span><span className="bio-label">Certifications</span></div>
               <div className="bio-div" />
               <div className="bio-stat"><span className="bio-num">3</span><span className="bio-label">Internships</span></div>
               <div className="bio-div" />
@@ -1003,7 +1032,7 @@ export default function App() {
           <div className="cert-inner">
             <Reveal><p className="section-label">Certifications</p></Reveal>
             <Reveal delay={80}><h2 className="section-heading">My Certifications</h2></Reveal>
-            <Reveal delay={120}><p className="section-sub">14 verified credentials across AI/ML, Cloud, Java, and Cybersecurity.</p></Reveal>
+            <Reveal delay={120}><p className="section-sub">17 verified credentials across AI/ML, Cloud, Java, IoT, and Cybersecurity.</p></Reveal>
             <div className="cert-grid">
               {certifications.map((c, i) => (
                 <Reveal key={c.title} delay={i * 55}>
@@ -1058,17 +1087,47 @@ export default function App() {
         <section id="research" className="section">
           <Reveal><p className="section-label">Research</p></Reveal>
           <Reveal delay={80}><h2 className="section-heading">Publications</h2></Reveal>
-          <Reveal delay={120}>
-            <div className="research-card">
-              <h3>Efficient Detection of Offensive Social Media Comments in Assamese language Using LSTM</h3>
-              <p className="research-authors">Komal Kumar, Lucky Kumari, Kritansh Pandey, Dr. Shivani Dubey, Neha Gupta, Vikas Yadav</p>
-              <p className="research-venue">IRJCS, Volume 12, Issue 12 (December 2025)</p>
-              <a href="https://doi.org/10.26562/irjcs.2025.v1212.08" className="research-doi" target="_blank" rel="noreferrer">doi.org/10.26562/irjcs.2025.v1212.08</a>
-              <div className="research-pdf-btns">
-                <a href="/research paper.pdf" target="_blank" rel="noreferrer" className="btn-pdf-view">📄 View Paper</a>
-              </div>
-            </div>
-          </Reveal>
+          <div className="pub-grid">
+            {publications.map((p, i) => (
+              <Reveal key={p.title} delay={120 + i * 100}>
+                <div className="pub-card">
+                  <div className="pub-head">
+                    <h3>{p.title}</h3>
+                    <span className={`pub-status ${p.status === 'Published' ? 'is-published' : 'is-pending'}`}>{p.status}</span>
+                  </div>
+                  <p className="pub-venue">{p.venue}</p>
+                  <p className="pub-meta">{p.role} • {p.date}</p>
+                  <p className="pub-categories">{p.categories.join(' • ')}</p>
+                  <p className="pub-authors">{p.authors}</p>
+                  <p className="pub-desc">{p.desc}</p>
+
+                  {p.stats && (
+                    <div className="pub-stats">
+                      {p.stats.map((s) => (
+                        <div className="pub-stat-box" key={s.label}>
+                          <span className="pub-stat-label">{s.label}:</span>
+                          <span className="pub-stat-value">{s.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {p.dataset && <p className="pub-dataset"><strong>Datasets:</strong> {p.dataset}</p>}
+
+                  {p.tags && (
+                    <div className="pub-tags">
+                      {p.tags.map((t) => <span className="pub-tag" key={t}>{t}</span>)}
+                    </div>
+                  )}
+
+                  <div className="research-pdf-btns">
+                    {p.doi && <a href={p.doi} className="research-doi" target="_blank" rel="noreferrer">doi.org/{p.doi.split('doi.org/')[1]}</a>}
+                    {p.pdf && <a href={p.pdf} target="_blank" rel="noreferrer" className="btn-pdf-view">📄 View Paper</a>}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </section>
 
         {/* ── CONTACT ── */}
