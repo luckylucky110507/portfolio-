@@ -299,13 +299,6 @@ const publications = [
     categories: ['AI', 'NLP', 'Deep Learning'],
     authors: 'Komal Kumar, Lucky Kumari, Kritansh Pandey, Dr. Shivani Dubey, Neha Gupta, Vikas Yadav',
     desc: 'An LSTM-based deep learning approach to automatically detect offensive comments in Assamese-language social media text, tackling the challenge of moderating harmful content in a low-resource regional language.',
-    // TODO: replace with your actual reported metrics from the paper
-    stats: [
-      { label: 'Accuracy', value: '—' },
-      { label: 'Precision', value: '—' },
-      { label: 'Recall', value: '—' },
-      { label: 'F1-Score', value: '—' },
-    ],
     tags: ['LSTM', 'NLP', 'Python', 'TensorFlow/Keras'],
     doi: 'https://doi.org/10.26562/irjcs.2025.v1212.08',
     pdf: '/research paper.pdf',
@@ -1100,17 +1093,6 @@ export default function App() {
                   <p className="pub-categories">{p.categories.join(' • ')}</p>
                   <p className="pub-authors">{p.authors}</p>
                   <p className="pub-desc">{p.desc}</p>
-
-                  {p.stats && (
-                    <div className="pub-stats">
-                      {p.stats.map((s) => (
-                        <div className="pub-stat-box" key={s.label}>
-                          <span className="pub-stat-label">{s.label}:</span>
-                          <span className="pub-stat-value">{s.value}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
 
                   {p.dataset && <p className="pub-dataset"><strong>Datasets:</strong> {p.dataset}</p>}
 
