@@ -171,7 +171,7 @@ const nodes = [
   },
   {
     id: 8, x: 555, y: 385, label: 'Colab', color: '#f9ab00', bg: '#3d1e0a', r: 28, dur: '6s', delay: '1.4s',
-    logo: <svg viewBox="0 0 24 24"><path fill="#f9ab00" d="M4.5 12a7.5 7.5 0 0115 0 7.5 7.5 0 01-15 0z" opacity=".3" /><path fill="#f9ab00" d="M12 4.5C7.86 4.5 4.5 7.86 4.5 12S7.86 19.5 12 19.5 19.5 16.14 19.5 12 16.14 4.5 12 4.5zm-1 9.5V10l4 3-4 3z" /></svg>
+    logo: <svg viewBox="0 0 24 24"><path fill="#f9ab00" d="M4.5 12a7.5 7.5 0 01-15 0 7.5 7.5 0 01-15 0z" opacity=".3" /><path fill="#f9ab00" d="M12 4.5C7.86 4.5 4.5 7.86 4.5 12S7.86 19.5 12 19.5 19.5 16.14 19.5 12 16.14 4.5 12 4.5zm-1 9.5V10l4 3-4 3z" /></svg>
   },
   {
     id: 9, x: 265, y: 72, label: 'Jupyter', color: '#f37626', bg: '#3d2800', r: 28, dur: '7s', delay: '0.5s',
@@ -261,6 +261,16 @@ const aiProjects = [
     url: 'https://github.com/luckylucky110507/Movie-Success-Prediction', demo: null, color: '#a855f7', icon: '🎬', image: '/projects/movie-success-prediction.png'
   },
   {
+    name: 'TalentLens AI', stack: ['React', 'Vite', 'FastAPI', 'Python', 'TF-IDF & Cosine Similarity', 'Random Forest', 'scikit-learn (ANN)', 'SQLite/SQLAlchemy', 'Recharts'],
+    desc: 'Full-stack AI resume-intelligence platform: parses PDF/DOCX resumes, computes TF-IDF/cosine-similarity resume-to-JD matching, and produces a transparent ATS score (skill match, keywords, similarity, section completeness, project relevance). Combines a Random Forest classifier with an ANN-style suitability model, recruiter batch ranking, skill-gap career recommendations, and a rule-based interview-practice module.',
+    url: 'https://github.com/luckylucky110507/Talent-Lens-AI.git', demo: 'https://talent-lens-ai-beta.vercel.app/', color: '#6366f1', icon: '🧠', image: '/projects/talentlens-ai.png'
+  },
+  {
+    name: 'Heart Disease Analytics & Risk Prediction', stack: ['Python', 'Power BI', 'Pandas', 'Scikit-learn', 'DAX', 'Matplotlib/Seaborn', 'Random Forest'],
+    desc: 'End-to-end healthcare analytics project pairing a Power BI dashboard with a Python ML pipeline on the Heart Failure Clinical Records dataset (299 patients). Compared 5 models for mortality prediction — Random Forest performed best (ROC-AUC 0.90) — then fed patient-level risk scores back into an interactive Power BI dashboard with KPI cards, decomposition-tree root-cause analysis, and an AI risk-prediction page.',
+    url: 'https://github.com/luckylucky110507/heart-failure-risk-prediction-system.git', demo: null, color: '#f43f5e', icon: '❤️', image: '/projects/heart-disease-analytics.png'
+  },
+  {
     name: 'House Price Prediction', stack: ['Python', 'Pandas', 'Scikit-learn', 'Random Forest', 'Linear Regression', 'GridSearchCV'],
     desc: 'Built and compared Linear Regression, Ridge Regression, and Random Forest models to predict house prices. Performed feature engineering and hyperparameter tuning, evaluating performance with MAE, RMSE, and R² Score.',
     url: 'https://github.com/luckylucky110507/House-Price-Prediction-Kaggle', demo: null, color: '#22c55e', icon: '🏠', image: null
@@ -329,7 +339,7 @@ const experience = [
 const BOT_QA = [
   { q: /hi|hello|hey/i, a: "Hi there! 👋 I'm Lucky's AI. Ask me about her skills, projects, or how to reach her!" },
   { q: /skill|tech|stack|know/i, a: "Lucky is skilled in Python, ML, NLP, SQL, Power BI, Java, Scikit-learn, Streamlit, Pandas, NumPy, Git & Jupyter! 🚀" },
-  { q: /project/i, a: "Lucky has 6 AI/ML projects — PDF to eCourse (AI course generator), Fake News Detector (96.81% accuracy), Voice SQL Agent, Movie Recommender, Movie Success Prediction & House Price Prediction! 🎯" },
+  { q: /project/i, a: "Lucky has 8 AI/ML projects — PDF to eCourse (AI course generator), Fake News Detector (96.81% accuracy), Voice SQL Agent, Movie Recommender, Movie Success Prediction, TalentLens AI (resume intelligence), Heart Disease Risk Prediction & House Price Prediction! 🎯" },
   { q: /edu|college|univer|study/i, a: "B.Tech CSE at IIMT University, Greater Noida (2023–2027) · SGPA: 8.81/10 🎓" },
   { q: /intern|work|experience/i, a: "Lucky interned at Codomax Digital Solutions (AI & ML, Jul–Aug 2026), CodTech IT Solutions (Full Stack, Aug–Oct 2025) & Codsoft (AI, Jul–Aug 2025) 💼" },
   { q: /cert/i, a: "17+ certs from Microsoft, Oracle, Google, IBM, NPTEL, Infosys Springboard, HackerRank, CETPA & more! 📜" },
@@ -865,7 +875,7 @@ export default function App() {
             <div className="bio-strip-inner">
               <div className="bio-stat"><span className="bio-num">8.81</span><span className="bio-label">SGPA</span></div>
               <div className="bio-div" />
-              <div className="bio-stat"><span className="bio-num">6+</span><span className="bio-label">AI/ML Projects</span></div>
+              <div className="bio-stat"><span className="bio-num">8+</span><span className="bio-label">AI/ML Projects</span></div>
               <div className="bio-div" />
               <div className="bio-stat"><span className="bio-num">17+</span><span className="bio-label">Certifications</span></div>
               <div className="bio-div" />
@@ -901,7 +911,7 @@ export default function App() {
               <div className="about-cards">
                 {[
                   { icon: '🎓', title: 'Education', val: 'B.Tech CSE (2023–2027)' },
-                  { icon: '💻', title: 'Projects', val: '6+ AI/ML Projects' },
+                  { icon: '💻', title: 'Projects', val: '8+ AI/ML Projects' },
                   { icon: '📄', title: 'Research', val: 'Published Research Paper' },
                   { icon: '🏆', title: 'Certifications', val: 'Multiple Industry Certifications' },
                 ].map(c => (
