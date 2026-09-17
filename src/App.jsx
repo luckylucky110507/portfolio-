@@ -142,51 +142,51 @@ const skills = [
 /* ── Neural network nodes ── */
 const nodes = [
   {
-    id: 0, x: 400, y: 220, label: 'Python', color: '#3776ab', bg: '#1e3a5f', r: 52, main: true, dur: '7s', delay: '0s',
+    id: 0, x: 400, y: 220, label: 'Python', color: '#3776ab', bg: '#1e3a5f', r: 74, main: true, dur: '7s', delay: '0s',
     logo: <svg viewBox="0 0 24 24"><path fill="#3776ab" d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05L0 11.97l.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09-.33.22zM21.1 6.11l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.02.08.02zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08-.33.23z" /><path fill="#ffd43b" d="M9.38 7.45h5.84v.83H9.38z" /></svg>
   },
   {
-    id: 1, x: 145, y: 95, label: 'ML', color: '#a855f7', bg: '#2d1b4e', r: 32, dur: '5.5s', delay: '0.4s',
+    id: 1, x: 145, y: 95, label: 'ML', color: '#a855f7', bg: '#2d1b4e', r: 46, dur: '5.5s', delay: '0.4s',
     logo: <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="#a855f7" /><path fill="none" stroke="#a855f7" strokeWidth="1.5" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" /><path fill="#a855f7" d="M12 6l1.5 4H10.5L12 6zm0 12l-1.5-4h3L12 18zM6 12l4-1.5V13.5L6 12zm12 0l-4 1.5V10.5L18 12z" /></svg>
   },
   {
-    id: 2, x: 655, y: 95, label: 'Power BI', color: '#f2c811', bg: '#3d2d00', r: 32, dur: '6s', delay: '0.8s',
+    id: 2, x: 655, y: 95, label: 'Power BI', color: '#f2c811', bg: '#3d2d00', r: 46, dur: '6s', delay: '0.8s',
     logo: <svg viewBox="0 0 24 24"><rect x="3" y="13" width="3" height="8" fill="#f2c811" rx="1" /><rect x="7" y="8" width="3" height="13" fill="#f2c811" rx="1" /><rect x="11" y="5" width="3" height="16" fill="#f2c811" rx="1" /><rect x="15" y="10" width="3" height="11" fill="#f2c811" rx="1" /><rect x="19" y="7" width="2" height="14" fill="#f2c811" rx="1" /></svg>
   },
   {
-    id: 3, x: 60, y: 235, label: 'Java', color: '#e76f00', bg: '#3d1a1a', r: 30, dur: '8s', delay: '1.2s',
+    id: 3, x: 60, y: 235, label: 'Java', color: '#e76f00', bg: '#3d1a1a', r: 42, dur: '8s', delay: '1.2s',
     logo: <svg viewBox="0 0 24 24"><path fill="#e76f00" d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308 0 0 .384.389.987.602-5.679 1.661-12.007.13-7.942-1.218M13.116 11.475c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688 0-.001-8.216 2.051-4.292 6.573M19.33 20.504s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.093.828-.093-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.7 14.977-1.82M9.292 13.21s-4.362 1.036-1.544 1.412c1.189.159 3.561.123 5.77-.062 1.806-.152 3.618-.477 3.618-.477s-.637.272-1.098.587c-4.429 1.165-12.981.623-10.522-.568 2.082-1.006 3.776-.892 3.776-.892M17.116 17.584c4.503-2.34 2.421-4.589.968-4.285-.355.074-.515.138-.515.138s.132-.207.385-.297c2.875-1.011 5.086 2.981-.928 4.562 0-.001.07-.062.09-.118" /></svg>
   },
   {
-    id: 4, x: 740, y: 235, label: 'Git', color: '#f05032', bg: '#3d1500', r: 30, dur: '6.5s', delay: '0.2s',
+    id: 4, x: 740, y: 235, label: 'Git', color: '#f05032', bg: '#3d1500', r: 42, dur: '6.5s', delay: '0.2s',
     logo: <svg viewBox="0 0 24 24"><path fill="#f05032" d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.608-.406-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187" /></svg>
   },
   {
-    id: 5, x: 100, y: 375, label: 'GitHub', color: '#e2e8f0', bg: '#1e293b', r: 30, dur: '7.5s', delay: '1.6s',
+    id: 5, x: 100, y: 375, label: 'GitHub', color: '#e2e8f0', bg: '#1e293b', r: 42, dur: '7.5s', delay: '1.6s',
     logo: <svg viewBox="0 0 24 24"><path fill="#e2e8f0" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg>
   },
   {
-    id: 6, x: 700, y: 375, label: 'SQL', color: '#00aff0', bg: '#0e2d35', r: 30, dur: '5s', delay: '0.6s',
+    id: 6, x: 700, y: 375, label: 'SQL', color: '#00aff0', bg: '#0e2d35', r: 42, dur: '5s', delay: '0.6s',
     logo: <svg viewBox="0 0 24 24"><path fill="#00aff0" d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4zm0 2c3.87 0 6 1.5 6 2s-2.13 2-6 2-6-1.5-6-2 2.13-2 6-2zm0 14c-3.87 0-6-1.5-6-2v-2.23C7.61 15.57 9.72 16 12 16s4.39-.43 6-1.23V17c0 .5-2.13 2-6 2zm0-4c-3.87 0-6-1.5-6-2v-2.23C7.61 11.57 9.72 12 12 12s4.39-.43 6-1.23V13c0 .5-2.13 2-6 2z" /></svg>
   },
   {
-    id: 8, x: 555, y: 385, label: 'Colab', color: '#f9ab00', bg: '#3d1e0a', r: 28, dur: '6s', delay: '1.4s',
+    id: 8, x: 555, y: 385, label: 'Colab', color: '#f9ab00', bg: '#3d1e0a', r: 40, dur: '6s', delay: '1.4s',
     logo: <svg viewBox="0 0 24 24"><path fill="#f9ab00" d="M4.5 12a7.5 7.5 0 01-15 0 7.5 7.5 0 01-15 0z" opacity=".3" /><path fill="#f9ab00" d="M12 4.5C7.86 4.5 4.5 7.86 4.5 12S7.86 19.5 12 19.5 19.5 16.14 19.5 12 16.14 4.5 12 4.5zm-1 9.5V10l4 3-4 3z" /></svg>
   },
   {
-    id: 9, x: 265, y: 72, label: 'Jupyter', color: '#f37626', bg: '#3d2800', r: 28, dur: '7s', delay: '0.5s',
+    id: 9, x: 265, y: 72, label: 'Jupyter', color: '#f37626', bg: '#3d2800', r: 40, dur: '7s', delay: '0.5s',
     logo: <svg viewBox="0 0 24 24"><path fill="#f37626" d="M7.157 22.201A1.784 1.784 0 0 1 5.378 20.7c-.483-2.43 1.938-4.943 5.941-5.03.717-.016 1.406.04 2.049.158-.049-.217-.076-.419-.076-.6 0-.714.344-1.294.806-1.605-4.745.153-9.219 2.388-9.219 5.97 0 1.978 1.51 3.407 3.278 3.407.828 0 1.676-.255 2.399-.74L7.157 22.2zm9.686-2.152c.723.485 1.571.74 2.399.74 1.768 0 3.278-1.429 3.278-3.407 0-3.582-4.474-5.817-9.219-5.97.462.311.806.891.806 1.605 0 .181-.027.383-.076.6.643-.118 1.332-.174 2.049-.158 4.003.087 6.424 2.6 5.941 5.03a1.784 1.784 0 0 1-1.779 1.501 1.784 1.784 0 0 1-1.08-.358l-2.32.417zM12 13.008c1.106 0 2.003-.897 2.003-2.003 0-1.106-.897-2.004-2.003-2.004A2.003 2.003 0 0 0 9.997 11.005c0 1.106.897 2.003 2.003 2.003z" /></svg>
   },
   {
-    id: 10, x: 535, y: 72, label: 'VS Code', color: '#007acc', bg: '#0c2340', r: 28, dur: '8.5s', delay: '1.8s',
+    id: 10, x: 535, y: 72, label: 'VS Code', color: '#007acc', bg: '#0c2340', r: 40, dur: '8.5s', delay: '1.8s',
     logo: <svg viewBox="0 0 24 24"><path fill="#007acc" d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 19.88V4.12a1.5 1.5 0 0 0-.85-1.533zm-5.146 14.861L10.826 12l7.178-5.448v10.896z" /></svg>
   },
   {
-    id: 11, x: 400, y: 385, label: 'Scikit', color: '#f7931e', bg: '#3d1e00', r: 28, dur: '5.5s', delay: '0.9s',
+    id: 11, x: 400, y: 385, label: 'Scikit', color: '#f7931e', bg: '#3d1e00', r: 40, dur: '5.5s', delay: '0.9s',
     logo: <svg viewBox="0 0 24 24"><path fill="#f7931e" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-4-4 1.41-1.41L11 14.17l6.59-6.59L19 9l-8 8z" /></svg>
   },
   {
-    id: 12, x: 250, y: 395, label: 'Matplotlib', color: '#e37933', bg: '#3d1f0a', r: 27, dur: '6.8s', delay: '1.1s',
+    id: 12, x: 250, y: 395, label: 'Matplotlib', color: '#e37933', bg: '#3d1f0a', r: 38, dur: '6.8s', delay: '1.1s',
     logo: <svg viewBox="0 0 24 24"><path fill="#e37933" d="M3 20h2v-8H3v8zm4 0h2V9H7v11zm4 0h2V4h-2v16zm4 0h2v-6h-2v6zm4 0h2v-10h-2v10z" /></svg>
   },
   {
@@ -196,7 +196,7 @@ const nodes = [
     label: "NumPy",
     color: "#4DABCF",
     bg: "#13293D",
-    r: 28,
+    r: 40,
     dur: "6.2s",
     delay: "0.7s",
     logo: (
@@ -215,7 +215,7 @@ const nodes = [
     label: "Pandas",
     color: "#150458",
     bg: "#25143D",
-    r: 28,
+    r: 40,
     dur: "6.8s",
     delay: "1.1s",
     logo: (
@@ -361,7 +361,7 @@ function getBotReply(msg) {
 /* ── Neural network SVG ── */
 function NeuralSkills() {
   return (
-    <svg className="circuit-svg" viewBox="0 0 800 460" fill="none">
+    <svg className="circuit-svg" viewBox="0 0 800 480" fill="none">
       <defs>
         <filter id="gn"><feGaussianBlur stdDeviation="5" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
         <filter id="ge"><feGaussianBlur stdDeviation="2.5" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
@@ -398,23 +398,25 @@ function NeuralSkills() {
             additive="sum" />
           {n.main && (
             <>
-              <circle cx={n.x} cy={n.y} r={n.r + 22} fill="none" stroke={n.color} strokeWidth="1" opacity="0.12">
-                <animate attributeName="r" values={`${n.r + 22};${n.r + 30};${n.r + 22}`} dur="4s" repeatCount="indefinite" />
+              <circle cx={n.x} cy={n.y} r={n.r + 26} fill="none" stroke={n.color} strokeWidth="1" opacity="0.12">
+                <animate attributeName="r" values={`${n.r + 26};${n.r + 36};${n.r + 26}`} dur="4s" repeatCount="indefinite" />
                 <animate attributeName="opacity" values="0.12;0.05;0.12" dur="4s" repeatCount="indefinite" />
               </circle>
-              <circle cx={n.x} cy={n.y} r={n.r + 10} fill="none" stroke={n.color} strokeWidth="1" opacity="0.22">
-                <animate attributeName="r" values={`${n.r + 10};${n.r + 15};${n.r + 10}`} dur="3s" repeatCount="indefinite" />
+              <circle cx={n.x} cy={n.y} r={n.r + 12} fill="none" stroke={n.color} strokeWidth="1" opacity="0.22">
+                <animate attributeName="r" values={`${n.r + 12};${n.r + 18};${n.r + 12}`} dur="3s" repeatCount="indefinite" />
               </circle>
             </>
           )}
-          <circle cx={n.x} cy={n.y} r={n.r} fill={`url(#ng${n.id})`} stroke={n.color} strokeWidth={n.main ? 2.5 : 1.5} opacity="0.97" />
+          {/* neon outline ring around every icon, like the video reference */}
+          <circle cx={n.x} cy={n.y} r={n.r + 7} fill="none" stroke={n.color} strokeWidth="1.5" opacity="0.4" />
+          <circle cx={n.x} cy={n.y} r={n.r} fill={`url(#ng${n.id})`} stroke={n.color} strokeWidth={n.main ? 3 : 2} opacity="0.97" />
           {React.cloneElement(n.logo, {
-            x: n.x - (n.main ? 20 : 13),
-            y: n.y - (n.main ? 22 : 15),
-            width: n.main ? 40 : 26,
-            height: n.main ? 40 : 26,
+            x: n.x - n.r * 0.42,
+            y: n.y - n.r * 0.42,
+            width: n.r * 0.84,
+            height: n.r * 0.84,
           })}
-          <text x={n.x} y={n.y + (n.main ? 22 : 17)} textAnchor="middle" fill={n.color} fontSize={n.main ? 10 : 8} fontWeight="700" opacity="0.9">{n.label}</text>
+          <text x={n.x} y={n.y + n.r + 22} textAnchor="middle" fill={n.color} fontSize={n.main ? 14 : 12} fontWeight="700" opacity="0.9">{n.label}</text>
         </g>
       ))}
     </svg>
@@ -974,7 +976,7 @@ export default function App() {
           <div className="project-grid">
             {aiProjects.map((p, i) => (
               <Reveal key={p.name} delay={i * 60}>
-                <article className="project-card" style={{ '--accent-glow': p.color + '55', '--accent-border': p.color + '80' }}>
+                <article className="project-card" style={{ '--accent-glow': p.color + '55', '--accent-border': p.color + '80', '--pi': i }}>
                   <div className={`project-thumb ${p.image ? 'has-image' : ''}`} style={!p.image ? { background: `linear-gradient(135deg,${p.color}22,${p.color}42)` } : undefined}>
                     {p.image ? (
                       <img src={p.image} alt={p.name} className="project-thumb-img" />
