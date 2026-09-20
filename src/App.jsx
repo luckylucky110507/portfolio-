@@ -330,8 +330,8 @@ const edges = [
 /* ── AI/ML Projects (primary) ── */
 const aiProjects = [
   {
-    name: 'PDF to eCourse', stack: ['Next.js 16', 'TypeScript', 'Groq (Llama 3.3 70B)', 'Supabase', 'NextAuth.js', 'Tailwind CSS'],
-    desc: 'AI platform that turns any PDF into a full interactive course — chapters, topics & lessons auto-structured by Llama 3.3, with progress tracking, an AI tutor chatbot, auto-generated quizzes, full-text search and one-click summaries.',
+    name: 'PDF to eCourse', stack: ['Next.js 16', 'TypeScript', 'Groq (GPT-OSS-120B)', 'Supabase', 'NextAuth.js', 'Tailwind CSS'],
+    desc: 'AI platform that turns any PDF into a full interactive course — chapters, topics & lessons auto-structured by GPT-OSS-120B, with progress tracking, an AI tutor chatbot, auto-generated quizzes, full-text search and one-click summaries.',
     url: 'https://github.com/luckylucky110507/-pdf-to-ecourse', demo: 'https://pdf-to-ecourse-platform-three.vercel.app/', color: '#22d3ee', icon: '📚', image: '/projects/pdf-to-ecourse.png'
   },
   {
@@ -965,13 +965,21 @@ export default function App() {
           <div className="hero-content">
             <p className="hero-tagline">
               <span className="hero-tagline-icon" aria-hidden="true">
-                <svg viewBox="0 0 32 32" fill="none">
-                  <path d="M7 12.5 15 8l9 5M7 13l8 9 9-8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity=".8" />
-                  <circle cx="7" cy="12.5" r="2.5" fill="#5ce1e6" />
-                  <circle cx="15" cy="8" r="2.5" fill="#a78bfa" />
-                  <circle cx="24" cy="13" r="2.5" fill="#5ce1e6" />
-                  <circle cx="15" cy="22" r="2.5" fill="#7c3aed" />
-                  <path d="m24 3 .9 2.1L27 6l-2.1.9L24 9l-.9-2.1L21 6l2.1-.9L24 3Z" fill="#c4b5fd" />
+                <svg viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="17" stroke="url(#tagRing)" strokeWidth="1.4" opacity=".55" />
+                  <path d="M20 8v6M20 26v6M8 20h6M26 20h6" stroke="#5ce1e6" strokeWidth="1.6" strokeLinecap="round" opacity=".8" />
+                  <circle cx="20" cy="20" r="6.5" fill="url(#tagCore)" />
+                  <path d="M20 5.5 21.3 9l3.5 1.3-3.5 1.3L20 15l-1.3-3.4L15.2 10.3 18.7 9 20 5.5Z" fill="#c4b5fd" />
+                  <defs>
+                    <linearGradient id="tagRing" x1="0" y1="0" x2="40" y2="40">
+                      <stop stopColor="#7c3aed" />
+                      <stop offset="1" stopColor="#5ce1e6" />
+                    </linearGradient>
+                    <radialGradient id="tagCore" cx="50%" cy="40%" r="60%">
+                      <stop stopColor="#c4b5fd" />
+                      <stop offset="1" stopColor="#7c3aed" />
+                    </radialGradient>
+                  </defs>
                 </svg>
               </span>
               <span className="hero-tagline-copy">
