@@ -11,7 +11,7 @@ const profile = {
   github: 'https://github.com/luckylucky110507',
   instagram: 'https://www.instagram.com/k11_lucky',
   location: 'Delhi/NCR, India',
-  resumeUrl: 'Resume Lucky.pdf',
+  resumeUrl: 'public/Resume Lucky..pdf',
   photo: '/profile.jpeg',
 }
 
