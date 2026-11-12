@@ -3090,3 +3090,374 @@ footer {
     padding: 50px 16px;
   }
 }
+
+/* ═══ UPDATE: experience highlight ═══ */
+.exp-current {
+  border-color: rgba(92, 225, 230, .4);
+  background: linear-gradient(160deg, rgba(92, 225, 230, .07), var(--bg2) 60%)
+}
+
+.exp-now {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: .68rem;
+  font-weight: 700;
+  vertical-align: middle;
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, .4);
+  background: rgba(74, 222, 128, .08)
+}
+
+.exp-role {
+  font-size: .82rem;
+  color: var(--purple-light);
+  font-weight: 600;
+  margin-top: 2px
+}
+
+/* ═══ UPDATE: about photo ═══ */
+.about-row {
+  flex-wrap: wrap;
+  align-items: center
+}
+
+.about-photo-wrap {
+  flex: 0 0 280px;
+  display: flex;
+  justify-content: center
+}
+
+.about-left-wrap {
+  flex: 1 1 380px;
+  min-width: 0
+}
+
+.about-right-wrap {
+  flex: 1 1 100%
+}
+
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))
+}
+
+.about-photo-frame {
+  margin: 0;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, #7c3aed, #5ce1e6);
+  box-shadow: 0 20px 60px rgba(124, 58, 237, .35);
+  transition: transform .45s cubic-bezier(.175, .885, .32, 1.275), box-shadow .45s
+}
+
+.about-photo-frame:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 30px 80px rgba(124, 58, 237, .5), 0 0 40px rgba(92, 225, 230, .25)
+}
+
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 50%;
+  display: block;
+  border: 4px solid var(--bg)
+}
+
+/* ═══ UPDATE: skill categories ═══ */
+.skill-cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 22px;
+  margin-top: 40px
+}
+
+.scc-card {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 22px;
+  border-radius: 18px;
+  background: var(--bg3);
+  border: 1px solid color-mix(in srgb, var(--cc) 30%, transparent);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .35);
+  transition: transform .35s, border-color .3s, box-shadow .35s
+}
+
+.scc-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--cc);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, .5), 0 0 30px color-mix(in srgb, var(--cc) 30%, transparent)
+}
+
+.scc-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px
+}
+
+.scc-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .06);
+  font-size: 1.05rem
+}
+
+.scc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px
+}
+
+.scc-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 6px;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--text);
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid color-mix(in srgb, var(--sc) 35%, transparent);
+  transition: transform .25s, border-color .25s, background .25s
+}
+
+.scc-chip:hover {
+  transform: translateY(-3px);
+  border-color: var(--sc);
+  background: color-mix(in srgb, var(--sc) 12%, transparent)
+}
+
+.scc-logo {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .35);
+  padding: 4px;
+  box-sizing: border-box;
+  flex-shrink: 0
+}
+
+.scc-logo svg {
+  width: 100%;
+  height: 100%
+}
+
+.scc-mono {
+  font-size: .55rem;
+  font-weight: 800;
+  color: var(--sc);
+  letter-spacing: -.02em;
+  line-height: 1
+}
+
+/* ═══ UPDATE: projects tiers ═══ */
+.proj-tier-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 8px 0 24px
+}
+
+.proj-tier-bar {
+  width: 4px;
+  height: 24px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #7c3aed, #5ce1e6)
+}
+
+.proj-tier-other {
+  margin-top: 72px;
+  font-size: 1.05rem;
+  color: var(--muted)
+}
+
+.featured-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr))
+}
+
+.featured-card .project-thumb {
+  height: 220px
+}
+
+.fc-block {
+  font-size: .85rem
+}
+
+.fc-block strong,
+.fc-label {
+  color: var(--teal)
+}
+
+.fc-label {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 700;
+  margin: 0 0 8px
+}
+
+.fc-features {
+  margin: 0 0 14px;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: .85rem;
+  line-height: 1.6
+}
+
+.compact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 20px
+}
+
+.compact-card {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  transition: transform .35s, border-color .3s, box-shadow .35s
+}
+
+.compact-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-border, var(--border));
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .45), 0 0 30px -8px var(--accent-glow)
+}
+
+.compact-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px
+}
+
+.compact-head h4 {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0
+}
+
+.compact-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  flex-shrink: 0
+}
+
+.compact-live {
+  position: static
+}
+
+.compact-card>p {
+  font-size: .84rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+  flex: 1
+}
+
+.compact-card .project-tags {
+  margin-bottom: 14px
+}
+
+.compact-card .proj-btn {
+  padding: 6px 12px;
+  font-size: .78rem
+}
+
+@media (max-width:900px) {
+  .about-photo-wrap {
+    flex-basis: 100%
+  }
+
+  .about-photo-frame {
+    width: 220px;
+    height: 220px
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr
+  }
+
+  .proj-tier-other {
+    margin-top: 48px
+  }
+}
+
+@media (max-width:600px) {
+  .exp-header {
+    flex-direction: column
+  }
+
+  .scc-card {
+    padding: 18px
+  }
+}
+
+/* neural network now taller (extra skill nodes) */
+.circuit-svg {
+  height: auto;
+  aspect-ratio: 800/680
+}
+
+.scc-logo svg text {
+  font-family: system-ui, sans-serif
+}
+
+/* About photo: show the FULL portrait photo (rounded rectangle, 3:4) */
+.about-photo-wrap {
+  flex: 0 0 320px
+}
+
+.about-photo-frame {
+  width: 320px;
+  height: auto;
+  aspect-ratio: 3/4;
+  border-radius: 26px;
+  padding: 5px;
+  box-sizing: border-box
+}
+
+.about-photo {
+  border-radius: 22px;
+  border: none;
+  object-position: center
+}
+
+@media (max-width:900px) {
+  .about-photo-wrap {
+    flex-basis: 100%
+  }
+
+  .about-photo-frame {
+    width: min(78vw, 320px);
+    height: auto
+  }
+}
