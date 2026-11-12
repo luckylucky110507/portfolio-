@@ -1076,8 +1076,8 @@ body {
 
 .circuit-svg {
   width: 100%;
-  max-width: 960px;
-  height: 920px;
+  max-width: 1100px;
+  height: auto;
   filter: drop-shadow(0 0 30px rgba(124, 58, 237, .2));
   animation: float 10s ease-in-out infinite;
 }
