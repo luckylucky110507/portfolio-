@@ -4,7 +4,7 @@ import './App.css'
 /* ── Profile data ── */
 const profile = {
   name: 'Lucky Kumari',
-  bio: "I am a B.Tech Computer Science student with a strong interest in Artificial Intelligence and Machine Learning. I enjoy building intelligent systems that solve real-world problems using Python, SQL, NLP, and Machine Learning. My journey includes developing predictive models, recommendation systems, NLP applications, and data-driven solutions while continuously improving my problem-solving and software engineering skills. I am passionate about learning emerging AI technologies and contributing to impactful products.",
+  bio: "I am a B.Tech Computer Science student with a strong interest in Artificial Intelligence and Machine Learning. I enjoy building intelligent systems that solve real-world problems using Python, SQL, NLP, and Machine Learning. My journey includes developing predictive models, recommendation systems, NLP applications, and data-driven solutions while continuously improving my problem-solving and software engineering skills. I also work with Deep Learning (CNNs, LSTMs, Autoencoders), Generative AI and LLM-powered applications, and have hands-on exposure to Computer Vision with YOLOv8 and OpenCV. I am passionate about learning emerging AI technologies and contributing to impactful products.",
   email: 'kumarilucky01437@gmail.com',
   phone: '+91-7827843321',
   linkedin: 'https://www.linkedin.com/in/lucky-kumari-3b83a2364',
@@ -354,10 +354,13 @@ const nodes = [
     ['Riva', 'NVIDIA Riva', '#76b900', '#233500', 20], ['AWS', 'AWS', '#ff9900', '#442b00', 21],
     ['Render', 'Render', '#46e3b7', '#0d3d33', 22], ['Vercel', 'Vercel', '#e2e8f0', '#1e293b', 23],
   ].map(([label, skill, color, bg], i) => ({
-    id: 16 + i, x: 60 + 96 * (i % 8), y: 505 + 95 * Math.floor(i / 8), label, color, bg, r: 34,
+    id: 16 + i, x: 100 + 150 * (i % 5), y: 540 + 140 * Math.floor(i / 5), label, color, bg, r: 52,
     dur: `${5.5 + (i % 5) * 0.7}s`, delay: `${(i % 6) * 0.35}s`, logo: getSkillLogo(skill, color),
   })),
 ]
+
+/* Bigger skill nodes everywhere (lower grid already sized) */
+nodes.forEach(n => { if (n.id < 16) n.r = Math.round(n.r * 1.14) })
 
 const nodesWithRealLogos = nodes.map(node => {
   const logoName = node.label === 'ML'
@@ -375,6 +378,13 @@ const edges = [
   [0, 15], [15, 2], [15, 6],
   [16, 5], [17, 5], [18, 12], [19, 11], [20, 11], [21, 8], [22, 6], [23, 6],
   [24, 16], [25, 17], [26, 18], [27, 19], [28, 20], [29, 21], [30, 22], [31, 23], [28, 27],
+  // lower grid — link row neighbours and the node directly below (same as the upper mesh)
+  ...Array.from({ length: 16 }, (_, i) => 16 + i).flatMap(id => {
+    const i = id - 16, out = []
+    if (i % 5 !== 4 && i + 1 < 16) out.push([id, id + 1])
+    if (i + 5 < 16) out.push([id, id + 5])
+    return out
+  }),
 ]
 
 /* ── AI/ML Projects (primary) ── */
@@ -421,18 +431,18 @@ const aiProjects = [
   },
   // ── Added: edit descriptions/stack/demo once you are ready ──
   {
-    tier: 'other', name: 'Titanic Survival Prediction', stack: ['Python', 'Machine Learning'],
-    desc: 'Machine learning classification project predicting passenger survival on the Titanic dataset.',
+    tier: 'other', name: 'Titanic Survival Prediction', stack: ['Python', 'Pandas', 'Scikit-learn', 'Random Forest', 'GridSearchCV'],
+    desc: 'First Kaggle competition project — Random Forest tuned with GridSearchCV (5-fold CV, 83.5% CV accuracy, 0.775 public LB). Engineered Title, FamilySize, IsAlone, HasCabin and FarePerPerson features; a 4-model ensemble scored higher on CV but lower on LB — a hands-on lesson in overfitting.',
     url: 'https://github.com/luckylucky110507/titanic-survival-prediction.git', demo: null, color: '#38bdf8', icon: '🚢', image: null
   },
   {
-    tier: 'featured', name: 'Intelligent Video Surveillance', stack: ['Python'],
-    desc: 'Intelligent video surveillance project. See the repository for full details.',
-    url: 'https://github.com/luckylucky110507/Intelligent-video-surveillance.git', demo: null, color: '#14b8a6', icon: '📹', image: null
+    tier: 'featured', name: 'Intelligent Video Surveillance', stack: ['Python', 'YOLOv8', 'DeepSORT', 'OpenCV', 'Autoencoder', 'SQLite', 'Streamlit'],
+    desc: 'AI camera surveillance system — YOLOv8 person detection, DeepSORT multi-object tracking, optical-flow motion detection and autoencoder-based anomaly scoring. Logs events to SQLite and fires email alerts on anomalies; deployed as a live Streamlit app.',
+    url: 'https://github.com/luckylucky110507/Intelligent-video-surveillance.git', demo: 'https://intelligent-video-surveillance-dszg95tugxibpkql6bxd5b.streamlit.app/', color: '#14b8a6', icon: '📹', image: '/projects/intelligent-video-surveillance.png'
   },
   {
-    tier: 'other', name: 'OMR Evaluation & Scoring System', stack: ['Python'],
-    desc: 'OMR sheet evaluation and scoring system. See the repository for full details.',
+    tier: 'other', name: 'OMR Evaluation & Scoring System', stack: ['Python', 'Streamlit', 'OpenCV', 'FastAPI', 'Pandas'],
+    desc: 'Lightweight OMR (Optical Mark Recognition) evaluation system with a Streamlit frontend and backend API. Supports CSV/JSON/Excel answer keys, batch sheet scoring, result exports and configurable env-based settings, with a full test suite.',
     url: 'https://github.com/luckylucky110507/OMR-Evaluation-and-Scoring-system.git', demo: null, color: '#fb923c', icon: '📝', image: null
   },
 ]
@@ -619,7 +629,7 @@ function ProjectCard({ p, i, compact }) {
 /* ── Neural network SVG ── */
 function NeuralSkills() {
   return (
-    <svg className="circuit-svg" viewBox="0 0 800 680" fill="none">
+    <svg className="circuit-svg" viewBox="0 0 800 1040" fill="none">
       <defs>
         <filter id="gn"><feGaussianBlur stdDeviation="5" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
         <filter id="ge"><feGaussianBlur stdDeviation="2.5" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
@@ -674,7 +684,7 @@ function NeuralSkills() {
             width: n.r * 0.84,
             height: n.r * 0.84,
           })}
-          <text x={n.x} y={n.y + n.r + 22} textAnchor="middle" fill={n.color} fontSize={n.main ? 14 : 12} fontWeight="700" opacity="0.9">{n.label}</text>
+          <text x={n.x} y={n.y + n.r + 22} textAnchor="middle" fill={n.color} fontSize={n.main ? 17 : 14} fontWeight="700" opacity="0.9">{n.label}</text>
         </g>
       ))}
     </svg>
@@ -1155,7 +1165,8 @@ export default function App() {
             <HeroRoles />
             <p className="hero-desc">
               Results-driven AI/ML enthusiast building end-to-end ML solutions, NLP applications,
-              recommendation systems, and predictive models using Python, SQL, and Scikit-learn.
+              recommendation systems, and predictive models using Python, SQL, and Scikit-learn —
+              along with Deep Learning, Generative AI / LLM apps and Computer Vision (YOLOv8, OpenCV).
               Currently seeking AI/ML Internship opportunities to contribute, learn, and grow.
             </p>
             <div className="hero-btns">
