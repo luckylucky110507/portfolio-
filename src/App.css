@@ -1076,8 +1076,8 @@ body {
 
 .circuit-svg {
   width: 100%;
-  max-width: 860px;
-  height: 520px;
+  max-width: 960px;
+  height: 920px;
   filter: drop-shadow(0 0 30px rgba(124, 58, 237, .2));
   animation: float 10s ease-in-out infinite;
 }
@@ -3180,7 +3180,7 @@ footer {
 .scc-card {
   height: 100%;
   box-sizing: border-box;
-  padding: 22px;
+  padding: 28px;
   border-radius: 18px;
   background: var(--bg3);
   border: 1px solid color-mix(in srgb, var(--cc) 30%, transparent);
@@ -3197,21 +3197,21 @@ footer {
 .scc-title {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1rem;
+  gap: 12px;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 16px
+  margin-bottom: 20px
 }
 
 .scc-icon {
   display: grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, .06);
-  font-size: 1.05rem
+  font-size: 1.3rem
 }
 
 .scc-chips {
@@ -3223,10 +3223,10 @@ footer {
 .scc-chip {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 12px 6px 6px;
+  gap: 10px;
+  padding: 8px 16px 8px 8px;
   border-radius: 999px;
-  font-size: .8rem;
+  font-size: .95rem;
   font-weight: 600;
   color: var(--text);
   background: rgba(255, 255, 255, .04);
@@ -3241,8 +3241,8 @@ footer {
 }
 
 .scc-logo {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   display: grid;
   place-items: center;
   border-radius: 50%;
@@ -3258,7 +3258,7 @@ footer {
 }
 
 .scc-mono {
-  font-size: .55rem;
+  font-size: .7rem;
   font-weight: 800;
   color: var(--sc);
   letter-spacing: -.02em;
