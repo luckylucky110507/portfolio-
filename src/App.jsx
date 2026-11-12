@@ -13,6 +13,7 @@ const profile = {
   location: 'Delhi/NCR, India',
   resumeUrl: 'Resume Lucky.pdf',
   photo: '/profile.jpeg',
+  aboutPhoto: '/about-photo.jpg', // <- put your About-section photo in /public with this name
 }
 
 /* ── Scroll-reveal hook ── */
@@ -41,20 +42,12 @@ function Reveal({ children, delay = 0, className = '' }) {
 /* ── Currently Exploring ── */
 const exploring = [
   {
-    name: 'Deep Learning', color: '#ff6b35', bg: '#4d1f0a',
-    logo: <svg viewBox="0 0 24 24"><path fill="#ff6b35" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" /></svg>
-  },
-  {
     name: 'OpenCV', color: '#5b9bd5', bg: '#1a2f42',
     logo: <svg viewBox="0 0 24 24"><path fill="#5b9bd5" d="M3 5v14h18V5H3zm2 2h14v10H5V7zm4 2v4h2v-4H9zm3 0v4h2v-4h-2zm3 0v4h2v-4h-2z" /></svg>
   },
   {
     name: 'MLOps', color: '#2eb67d', bg: '#0f3d25',
     logo: <svg viewBox="0 0 24 24"><path fill="#2eb67d" d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 2.18l8 4.04v9.78c0 4.42-2.84 8.54-7 10.08-4.16-1.54-7-5.66-7-10.08V8.22l6-4.04zM8 11.5h8v2H8z" /></svg>
-  },
-  {
-    name: 'Generative AI', color: '#9370db', bg: '#3d1a5c',
-    logo: <svg viewBox="0 0 24 24"><path fill="#9370db" d="M13 13h-2v-2h2v2zm-4 6h2v-2h-2v2zm4-6h2v-2h-2v2zm4 6h2v-2h-2v2zm0-6h2v-2h-2v2zm-8-6h2V5h-2v2zm8 0h2V5h-2v2zM8 5h2V3H8v2zm8 18h2v-2h-2v2zm-12 0h2v-2H4v2z" /></svg>
   },
   {
     name: 'Computer Vision', color: '#f39c12', bg: '#4a2600',
@@ -138,6 +131,18 @@ const skills = [
   },
 ]
 
+/* Moved from 'Currently Exploring' into Skills */
+const movedSkills = [
+  {
+    name: 'Deep Learning', color: '#ff6b35', bg: '#4d1f0a',
+    logo: <svg viewBox="0 0 24 24"><path fill="#ff6b35" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" /></svg>
+  },
+  {
+    name: 'Generative AI', color: '#9370db', bg: '#3d1a5c',
+    logo: <svg viewBox="0 0 24 24"><path fill="#9370db" d="M13 13h-2v-2h2v2zm-4 6h2v-2h-2v2zm4-6h2v-2h-2v2zm4 6h2v-2h-2v2zm0-6h2v-2h-2v2zm-8-6h2V5h-2v2zm8 0h2V5h-2v2zM8 5h2V3H8v2zm8 18h2v-2h-2v2zm-12 0h2v-2H4v2z" /></svg>
+  },
+]
+
 /* ── Inline brand marks adapted from simple-icons/simple-icons on GitHub ── */
 function officialSkillLogo(name) {
   if (name === 'MySQL') {
@@ -209,6 +214,35 @@ const skillsWithRealLogos = skills.map(skill => ({
   logo: officialSkillLogo(skill.name) || skill.logo,
 }))
 
+
+const BRAND = {
+  'AWS': { c: '#ff9900', p: 'M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.063.056.127.056.183 0 .08-.048.16-.152.24l-.503.335a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.239-.112a2.47 2.47 0 0 1-.287-.375 6.18 6.18 0 0 1-.248-.471c-.622.734-1.405 1.101-2.347 1.101-.67 0-1.205-.191-1.596-.574-.391-.384-.59-.894-.59-1.533 0-.678.239-1.23.726-1.644.487-.415 1.133-.623 1.955-.623.272 0 .551.024.846.064.296.04.6.104.918.176v-.583c0-.607-.127-1.03-.375-1.277-.255-.248-.686-.367-1.3-.367-.28 0-.568.031-.863.103-.295.072-.583.16-.862.272a2.287 2.287 0 0 1-.28.104.488.488 0 0 1-.127.023c-.112 0-.168-.08-.168-.247v-.391c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.167c.279-.144.614-.264 1.005-.36a4.84 4.84 0 0 1 1.246-.151c.95 0 1.644.216 2.091.647.439.43.662 1.085.662 1.963v2.586zm-3.24 1.214c.263 0 .534-.048.822-.144.287-.096.543-.271.758-.51.128-.152.224-.32.272-.512.047-.191.08-.423.08-.694v-.335a6.66 6.66 0 0 0-.735-.136 6.02 6.02 0 0 0-.75-.048c-.535 0-.926.104-1.19.32-.263.215-.39.518-.39.917 0 .375.095.655.295.846.191.2.47.296.838.296zm6.41.862c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.311L7.586 5.55a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.191-.2h.783c.151 0 .255.025.31.08.065.048.113.16.16.312l1.342 5.284 1.245-5.284c.04-.16.088-.264.151-.312a.549.549 0 0 1 .32-.08h.638c.152 0 .256.025.32.08.063.048.12.16.151.312l1.261 5.348 1.381-5.348c.048-.16.104-.264.16-.312a.52.52 0 0 1 .311-.08h.743c.127 0 .2.065.2.2 0 .04-.009.08-.017.128a1.137 1.137 0 0 1-.056.2l-1.923 6.17c-.048.16-.104.263-.168.311a.51.51 0 0 1-.303.08h-.687c-.151 0-.255-.024-.32-.08-.063-.056-.119-.16-.15-.32l-1.238-5.148-1.23 5.14c-.04.16-.087.264-.15.32-.065.056-.177.08-.32.08zm10.256.215c-.415 0-.83-.048-1.229-.143-.399-.096-.71-.2-.918-.32-.128-.071-.215-.151-.247-.223a.563.563 0 0 1-.048-.224v-.407c0-.167.064-.247.183-.247.048 0 .096.008.144.024.048.016.12.048.2.08.271.12.566.215.878.279.319.064.63.096.95.096.502 0 .894-.088 1.165-.264a.86.86 0 0 0 .415-.758.777.777 0 0 0-.215-.559c-.144-.151-.416-.287-.807-.415l-1.157-.36c-.583-.183-1.014-.454-1.277-.813a1.902 1.902 0 0 1-.4-1.158c0-.335.073-.63.216-.886.144-.255.335-.479.575-.654.24-.184.51-.32.83-.415.32-.096.655-.136 1.006-.136.175 0 .359.008.535.032.183.024.35.056.518.088.16.04.312.08.455.127.144.048.256.096.336.144a.69.69 0 0 1 .24.2.43.43 0 0 1 .071.263v.375c0 .168-.064.256-.184.256a.83.83 0 0 1-.303-.096 3.652 3.652 0 0 0-1.532-.311c-.455 0-.815.071-1.062.223-.248.152-.375.383-.375.71 0 .224.08.416.24.567.159.152.454.304.877.44l1.134.358c.574.184.99.44 1.237.767.247.327.367.702.367 1.117 0 .343-.072.655-.207.926-.144.272-.336.511-.583.703-.248.2-.543.343-.886.447-.36.111-.734.167-1.142.167zM21.698 16.207c-2.626 1.94-6.442 2.969-9.722 2.969-4.598 0-8.74-1.7-11.87-4.526-.247-.223-.024-.527.272-.351 3.384 1.963 7.559 3.153 11.877 3.153 2.914 0 6.114-.607 9.06-1.852.439-.2.814.287.383.607zM22.792 14.961c-.336-.43-2.22-.207-3.074-.103-.255.032-.295-.192-.063-.36 1.5-1.053 3.967-.75 4.254-.399.287.36-.08 2.826-1.485 4.007-.215.184-.423.088-.327-.151.32-.79 1.03-2.57.695-2.994z' },
+  'Docker': { c: '#2496ed', p: 'M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 00.184-.186V6.29a.185.185 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.136a.186.186 0 00-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.118a.185.185 0 00-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 00.185-.185V9.006a.185.185 0 00-.184-.186h-2.12a.186.186 0 00-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 00.184-.185V9.006a.185.185 0 00-.184-.186h-2.12a.185.185 0 00-.184.185v1.888c0 .102.082.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 00-.75.748 11.376 11.376 0 00.692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 003.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z' },
+  'FastAPI': { c: '#05998b', p: 'M12 .0387C5.3729.0384.0003 5.3931 0 11.9988c-.001 6.6066 5.372 11.9628 12 11.9625 6.628.0003 12.001-5.3559 12-11.9625-.0003-6.6057-5.3729-11.9604-12-11.96m-.829 5.4153h7.55l-7.5805 5.3284h5.1828L5.279 18.5436q2.9466-6.5444 5.892-13.0896' },
+  'PyCharm': { c: '#21d789', p: 'M7.833 6.666v-.055c0-1-.667-1.5-1.778-1.5H4.389v3.055h1.723c1.111 0 1.721-.666 1.721-1.5zM0 0v24h24V0H0zm2.223 3.167h4c2.389 0 3.833 1.389 3.833 3.445v.055c0 2.278-1.778 3.5-4.001 3.5H4.389v2.945H2.223V3.167zM11.277 21h-9v-1.5h9V21zm4.779-7.777c-2.944.055-5.111-2.223-5.111-5.057C10.944 5.333 13.056 3 16.111 3c1.889 0 3 .611 3.944 1.556l-1.389 1.61c-.778-.722-1.556-1.111-2.556-1.111-1.658 0-2.873 1.375-2.887 3.084.014 1.709 1.174 3.083 2.887 3.083 1.111 0 1.833-.445 2.61-1.167l1.39 1.389c-.999 1.112-2.166 1.779-4.054 1.779z' },
+  'NVIDIA Tokkio': { c: '#76b900', p: 'M8.948 8.798v-1.43a6.7 6.7 0 0 1 .424-.018c3.922-.124 6.493 3.374 6.493 3.374s-2.774 3.851-5.75 3.851c-.398 0-.787-.062-1.158-.185v-4.346c1.528.185 1.837.857 2.747 2.385l2.04-1.714s-1.492-1.952-4-1.952a6.016 6.016 0 0 0-.796.035m0-4.735v2.138l.424-.027c5.45-.185 9.01 4.47 9.01 4.47s-4.08 4.964-8.33 4.964c-.37 0-.733-.035-1.095-.097v1.325c.3.035.61.062.91.062 3.957 0 6.82-2.023 9.593-4.408.459.371 2.34 1.263 2.73 1.652-2.633 2.208-8.772 3.984-12.253 3.984-.335 0-.653-.018-.971-.053v1.864H24V4.063zm0 10.326v1.131c-3.657-.654-4.673-4.46-4.673-4.46s1.758-1.944 4.673-2.262v1.237H8.94c-1.528-.186-2.73 1.245-2.73 1.245s.68 2.412 2.739 3.11M2.456 10.9s2.164-3.197 6.5-3.533V6.201C4.153 6.59 0 10.653 0 10.653s2.35 6.802 8.948 7.42v-1.237c-4.84-.6-6.492-5.936-6.492-5.936z' },
+  'NVIDIA Riva': { c: '#76b900', p: 'M8.948 8.798v-1.43a6.7 6.7 0 0 1 .424-.018c3.922-.124 6.493 3.374 6.493 3.374s-2.774 3.851-5.75 3.851c-.398 0-.787-.062-1.158-.185v-4.346c1.528.185 1.837.857 2.747 2.385l2.04-1.714s-1.492-1.952-4-1.952a6.016 6.016 0 0 0-.796.035m0-4.735v2.138l.424-.027c5.45-.185 9.01 4.47 9.01 4.47s-4.08 4.964-8.33 4.964c-.37 0-.733-.035-1.095-.097v1.325c.3.035.61.062.91.062 3.957 0 6.82-2.023 9.593-4.408.459.371 2.34 1.263 2.73 1.652-2.633 2.208-8.772 3.984-12.253 3.984-.335 0-.653-.018-.971-.053v1.864H24V4.063zm0 10.326v1.131c-3.657-.654-4.673-4.46-4.673-4.46s1.758-1.944 4.673-2.262v1.237H8.94c-1.528-.186-2.73 1.245-2.73 1.245s.68 2.412 2.739 3.11M2.456 10.9s2.164-3.197 6.5-3.533V6.201C4.153 6.59 0 10.653 0 10.653s2.35 6.802 8.948 7.42v-1.237c-4.84-.6-6.492-5.936-6.492-5.936z' },
+  'Vercel': { c: '#e2e8f0', p: 'm12 1.608 12 20.784H0Z' },
+  'Render': { c: '#46e3b7', p: 'M18.263.007c-3.121-.147-5.744 2.109-6.192 5.082-.018.138-.045.272-.067.405-.696 3.703-3.936 6.507-7.827 6.507-1.388 0-2.691-.356-3.825-.979a.2024.2024 0 0 0-.302.178V24H12v-8.999c0-1.656 1.338-3 2.987-3h2.988c3.382 0 6.103-2.817 5.97-6.244-.12-3.084-2.61-5.603-5.682-5.75' },
+  'Supabase': { c: '#3ecf8e', p: 'M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z' },
+  'SQLite': { c: '#5fb3e6', p: 'M21.678.521c-1.032-.92-2.28-.55-3.513.544a8.71 8.71 0 0 0-.547.535c-2.109 2.237-4.066 6.38-4.674 9.544.237.48.422 1.093.544 1.561a13.044 13.044 0 0 1 .164.703s-.019-.071-.096-.296l-.05-.146a1.689 1.689 0 0 0-.033-.08c-.138-.32-.518-.995-.686-1.289-.143.423-.27.818-.376 1.176.484.884.778 2.4.778 2.4s-.025-.099-.147-.442c-.107-.303-.644-1.244-.772-1.464-.217.804-.304 1.346-.226 1.478.152.256.296.698.422 1.186.286 1.1.485 2.44.485 2.44l.017.224a22.41 22.41 0 0 0 .056 2.748c.095 1.146.273 2.13.5 2.657l.155-.084c-.334-1.038-.47-2.399-.41-3.967.09-2.398.642-5.29 1.661-8.304 1.723-4.55 4.113-8.201 6.3-9.945-1.993 1.8-4.692 7.63-5.5 9.788-.904 2.416-1.545 4.684-1.931 6.857.666-2.037 2.821-2.912 2.821-2.912s1.057-1.304 2.292-3.166c-.74.169-1.955.458-2.362.629-.6.251-.762.337-.762.337s1.945-1.184 3.613-1.72C21.695 7.9 24.195 2.767 21.678.521m-18.573.543A1.842 1.842 0 0 0 1.27 2.9v16.608a1.84 1.84 0 0 0 1.835 1.834h9.418a22.953 22.953 0 0 1-.052-2.707c-.006-.062-.011-.141-.016-.2a27.01 27.01 0 0 0-.473-2.378c-.121-.47-.275-.898-.369-1.057-.116-.197-.098-.31-.097-.432 0-.12.015-.245.037-.386a9.98 9.98 0 0 1 .234-1.045l.217-.028c-.017-.035-.014-.065-.031-.097l-.041-.381a32.8 32.8 0 0 1 .382-1.194l.2-.019c-.008-.016-.01-.038-.018-.053l-.043-.316c.63-3.28 2.587-7.443 4.8-9.791.066-.069.133-.128.198-.194Z' },
+  'Postman': { c: '#ff6c37', p: 'M13.527.099C6.955-.744.942 3.9.099 10.473c-.843 6.572 3.8 12.584 10.373 13.428 6.573.843 12.587-3.801 13.428-10.374C24.744 6.955 20.101.943 13.527.099zm2.471 7.485a.855.855 0 0 0-.593.25l-4.453 4.453-.307-.307-.643-.643c4.389-4.376 5.18-4.418 5.996-3.753zm-4.863 4.861l4.44-4.44a.62.62 0 1 1 .847.903l-4.699 4.125-.588-.588zm.33.694l-1.1.238a.06.06 0 0 1-.067-.032.06.06 0 0 1 .01-.073l.645-.645.512.512zm-2.803-.459l1.172-1.172.879.878-1.979.426a.074.074 0 0 1-.085-.039.072.072 0 0 1 .013-.093zm-3.646 6.058a.076.076 0 0 1-.069-.083.077.077 0 0 1 .022-.046h.002l.946-.946 1.222 1.222-2.123-.147zm2.425-1.256a.228.228 0 0 0-.117.256l.203.865a.125.125 0 0 1-.211.117h-.003l-.934-.934-.294-.295 3.762-3.758 1.82-.393.874.874c-1.255 1.102-2.971 2.201-5.1 3.268zm5.279-3.428h-.002l-.839-.839 4.699-4.125a.952.952 0 0 0 .119-.127c-.148 1.345-2.029 3.245-3.977 5.091zm3.657-6.46l-.003-.002a1.822 1.822 0 0 1 2.459-2.684l-1.61 1.613a.119.119 0 0 0 0 .169l1.247 1.247a1.817 1.817 0 0 1-2.093-.343zm2.578 0a1.714 1.714 0 0 1-.271.218h-.001l-1.207-1.207 1.533-1.533c.661.72.637 1.832-.054 2.522zM18.855 6.05a.143.143 0 0 0-.053.157.416.416 0 0 1-.053.45.14.14 0 0 0 .023.197.141.141 0 0 0 .084.03.14.14 0 0 0 .106-.05.691.691 0 0 0 .087-.751.138.138 0 0 0-.194-.033z' },
+}
+const LOGO_ALIAS = { 'Jupyter Notebook': 'Jupyter', 'Google Colab': 'Colab', 'Deep Learning (Fundamentals)': 'Deep Learning', 'Generative AI (Basics)': 'Generative AI' }
+const MONO_TXT = { SQL: 'SQL', 'NLP (Fundamentals)': 'NLP', AWS: 'aws', PuTTY: '>_' }
+const logoMap = Object.fromEntries([...skillsWithRealLogos, ...movedSkills].map(x => [x.name, x.logo]))
+/* Real brand mark when we have one, otherwise a clean text mark */
+function getSkillLogo(name, color = '#94a3b8') {
+  const key = LOGO_ALIAS[name] || name
+  const b = BRAND[key]
+  if (b) return <svg viewBox="0 0 24 24" role="img" aria-label={name}><path fill={b.c} d={b.p} /></svg>
+  if (logoMap[key]) return logoMap[key]
+  const ln = { fill: 'none', stroke: color, strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round' }
+  if (name === 'SQL') return <svg viewBox="0 0 24 24" role="img" aria-label="SQL database"><path {...ln} d="M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" /></svg>
+  if (name === 'NLP (Fundamentals)') return <svg viewBox="0 0 24 24" role="img" aria-label="NLP"><path {...ln} d="M4 4h16v12H10l-4 4v-4H4z" /><path {...ln} d="M8 8.5h8M8 12h5" /></svg>
+  if (name === 'PuTTY') return <svg viewBox="0 0 24 24" role="img" aria-label="PuTTY terminal"><rect {...ln} x="3" y="4" width="18" height="12" rx="2" /><path {...ln} d="M7 8.5l3 2-3 2M12 12.5h4M9 20h6M12 16v4" /></svg>
+  return <svg viewBox="0 0 24 24" role="img" aria-label={name}><text x="12" y="15.5" textAnchor="middle" fontSize={(MONO_TXT[name] || '').length > 2 ? 8 : 10} fontWeight="800" fill={color}>{MONO_TXT[name] || name.slice(0, 2)}</text></svg>
+}
 
 /* ── Neural network nodes ── */
 const nodes = [
@@ -309,6 +343,20 @@ const nodes = [
     delay: '1.3s',
     logo: officialSkillLogo('Streamlit'),
   },
+  ...[
+    // [label, skill name, colour, background, existing node to link to]
+    ['Docker', 'Docker', '#2496ed', '#0b2a45', 5], ['PyCharm', 'PyCharm', '#21d789', '#0b3a2a', 5],
+    ['FastAPI', 'FastAPI', '#05998b', '#06332f', 12], ['Deep Learning', 'Deep Learning', '#ff6b35', '#4d1f0a', 11],
+    ['Gen AI', 'Generative AI', '#9370db', '#3d1a5c', 11], ['NLP', 'NLP (Fundamentals)', '#1abc9c', '#0d3d35', 8],
+    ['SQL', 'SQL', '#00aff0', '#0a3144', 6], ['SQLite', 'SQLite', '#5fb3e6', '#0f2f45', 6],
+    ['PuTTY', 'PuTTY', '#94a3b8', '#1e293b', 16], ['Postman', 'Postman', '#ff6c37', '#44200f', 17],
+    ['Supabase', 'Supabase', '#3ecf8e', '#0f3d2a', 18], ['Tokkio', 'NVIDIA Tokkio', '#76b900', '#233500', 19],
+    ['Riva', 'NVIDIA Riva', '#76b900', '#233500', 20], ['AWS', 'AWS', '#ff9900', '#442b00', 21],
+    ['Render', 'Render', '#46e3b7', '#0d3d33', 22], ['Vercel', 'Vercel', '#e2e8f0', '#1e293b', 23],
+  ].map(([label, skill, color, bg], i) => ({
+    id: 16 + i, x: 60 + 96 * (i % 8), y: 505 + 95 * Math.floor(i / 8), label, color, bg, r: 34,
+    dur: `${5.5 + (i % 5) * 0.7}s`, delay: `${(i % 6) * 0.35}s`, logo: getSkillLogo(skill, color),
+  })),
 ]
 
 const nodesWithRealLogos = nodes.map(node => {
@@ -325,51 +373,74 @@ const edges = [
   [1, 3], [1, 9], [2, 4], [2, 10], [3, 5], [4, 6], [6, 8], [8, 11], [9, 10],
   [0, 12], [8, 12], [11, 12], [0, 13], [13, 14], [13, 11], [14, 6], [14, 2],
   [0, 15], [15, 2], [15, 6],
+  [16, 5], [17, 5], [18, 12], [19, 11], [20, 11], [21, 8], [22, 6], [23, 6],
+  [24, 16], [25, 17], [26, 18], [27, 19], [28, 20], [29, 21], [30, 22], [31, 23], [28, 27],
 ]
 
 /* ── AI/ML Projects (primary) ── */
 const aiProjects = [
   {
-    name: 'PDF to eCourse', stack: ['Next.js 16', 'TypeScript', 'Groq (GPT-OSS-120B)', 'Supabase', 'NextAuth.js', 'Tailwind CSS'],
+    tier: 'featured', name: 'PDF to eCourse', stack: ['Next.js 16', 'TypeScript', 'Groq (GPT-OSS-120B)', 'Supabase', 'NextAuth.js', 'Tailwind CSS'],
     desc: 'AI platform that turns any PDF into a full interactive course — chapters, topics & lessons auto-structured by GPT-OSS-120B, with progress tracking, an AI tutor chatbot, auto-generated quizzes, full-text search and one-click summaries.',
     url: 'https://github.com/luckylucky110507/-pdf-to-ecourse', demo: 'https://pdf-to-ecourse-platform-three.vercel.app/', color: '#22d3ee', icon: '📚', image: '/projects/pdf-to-ecourse.png'
   },
   {
-    name: 'Fake News Detection', stack: ['Python', 'Scikit-learn', 'TF-IDF', 'Logistic Regression', 'Streamlit'],
+    tier: 'other', name: 'Fake News Detection', stack: ['Python', 'Scikit-learn', 'TF-IDF', 'Logistic Regression', 'Streamlit'],
     desc: 'Built an NLP-based fake news classifier trained on 44,898 news articles using TF-IDF vectorization and Logistic Regression, reaching 96.81% accuracy. Deployed as a live Streamlit web app for real-time predictions.',
     url: 'https://github.com/luckylucky110507/fake-news-detection', demo: 'https://fake-news-detection-i6ke2c9ihsht66ljjenezq.streamlit.app/', color: '#3b82f6', icon: '📰', image: '/projects/fake-news-detection.png'
   },
   {
-    name: 'Voice SQL Insight Agent', stack: ['Python', 'Flask', 'SQL', 'NLP', 'Speech Recognition'],
+    tier: 'featured', name: 'Voice SQL Insight Agent', stack: ['Python', 'Flask', 'SQL', 'NLP', 'Speech Recognition'],
     desc: 'Developed an AI-powered voice-enabled SQL assistant that converts natural-language questions into schema-validated, read-only SQL queries using speech recognition and NLP.',
     url: 'https://github.com/luckylucky110507/voice-sql-insight-agent', demo: 'https://voice-sql-insight-agent.vercel.app/', color: '#f59e0b', icon: '🎙️', image: '/projects/voice-sql-insight-agent.png'
   },
   {
-    name: 'Movie Recommendation System', stack: ['Python', 'TF-IDF', 'Cosine Similarity'],
+    tier: 'other', name: 'Movie Recommendation System', stack: ['Python', 'TF-IDF', 'Cosine Similarity'],
     desc: 'Built a content-based recommendation engine using TF-IDF and Cosine Similarity to suggest movies across a dataset of 1,300+ Hollywood and Bollywood films.',
     url: 'https://github.com/luckylucky110507/Movie-Recommendation-System', demo: 'https://movie-recommendation-system-fqbmpdribti7z4tifzfurl.streamlit.app/', color: '#ef4444', icon: '🎥', image: '/projects/movie-recommendation-system.png'
   },
   {
-    name: 'Movie Success Prediction', stack: ['Python', 'Scikit-learn', 'Logistic Regression', 'Naive Bayes', 'SVM', 'GridSearchCV'],
+    tier: 'other', name: 'Movie Success Prediction', stack: ['Python', 'Scikit-learn', 'Logistic Regression', 'Naive Bayes', 'SVM', 'GridSearchCV'],
     desc: 'Built classification models with Logistic Regression, Naive Bayes, and SVM to predict movie box-office success, optimizing performance with GridSearchCV.',
     url: 'https://github.com/luckylucky110507/Movie-Success-Prediction', demo: null, color: '#a855f7', icon: '🎬', image: '/projects/movie-success-prediction.png'
   },
   {
-    name: 'TalentLens AI', stack: ['React', 'Vite', 'FastAPI', 'Python', 'TF-IDF & Cosine Similarity', 'Random Forest', 'scikit-learn (ANN)', 'SQLite/SQLAlchemy', 'Recharts'],
+    tier: 'featured', name: 'TalentLens AI', stack: ['React', 'Vite', 'FastAPI', 'Python', 'TF-IDF & Cosine Similarity', 'Random Forest', 'scikit-learn (ANN)', 'SQLite/SQLAlchemy', 'Recharts'],
     desc: 'Full-stack AI resume-intelligence platform: parses PDF/DOCX resumes, computes TF-IDF/cosine-similarity resume-to-JD matching, and produces a transparent ATS score (skill match, keywords, similarity, section completeness, project relevance). Combines a Random Forest classifier with an ANN-style suitability model, recruiter batch ranking, skill-gap career recommendations, and a rule-based interview-practice module.',
     url: 'https://github.com/luckylucky110507/Talent-Lens-AI.git', demo: 'https://talent-lens-ai-beta.vercel.app/', color: '#6366f1', icon: '🧠', image: '/projects/talentlens-ai.png'
   },
   {
-    name: 'Heart Disease Analytics & Risk Prediction', stack: ['Python', 'Power BI', 'Pandas', 'Scikit-learn', 'DAX', 'Matplotlib/Seaborn', 'Random Forest'],
+    tier: 'featured', name: 'Heart Disease Analytics & Risk Prediction', stack: ['Python', 'Power BI', 'Pandas', 'Scikit-learn', 'DAX', 'Matplotlib/Seaborn', 'Random Forest'],
     desc: 'End-to-end healthcare analytics project pairing a Power BI dashboard with a Python ML pipeline on the Heart Failure Clinical Records dataset (299 patients). Compared 5 models for mortality prediction — Random Forest performed best (ROC-AUC 0.90) — then fed patient-level risk scores back into an interactive Power BI dashboard with KPI cards, decomposition-tree root-cause analysis, and an AI risk-prediction page.',
     url: 'https://github.com/luckylucky110507/heart-failure-risk-prediction-system.git', demo: null, color: '#f43f5e', icon: '❤️', image: '/projects/heart-disease-analytics.png'
   },
   {
-    name: 'House Price Prediction', stack: ['Python', 'Pandas', 'Scikit-learn', 'Random Forest', 'Linear Regression', 'GridSearchCV'],
+    tier: 'other', name: 'House Price Prediction', stack: ['Python', 'Pandas', 'Scikit-learn', 'Random Forest', 'Linear Regression', 'GridSearchCV'],
     desc: 'Built and compared Linear Regression, Ridge Regression, and Random Forest models to predict house prices. Performed feature engineering and hyperparameter tuning, evaluating performance with MAE, RMSE, and R² Score.',
     url: 'https://github.com/luckylucky110507/House-Price-Prediction-Kaggle', demo: null, color: '#22c55e', icon: '🏠', image: null
   },
+  // ── Added: edit descriptions/stack/demo once you are ready ──
+  {
+    tier: 'other', name: 'Titanic Survival Prediction', stack: ['Python', 'Machine Learning'],
+    desc: 'Machine learning classification project predicting passenger survival on the Titanic dataset.',
+    url: 'https://github.com/luckylucky110507/titanic-survival-prediction.git', demo: null, color: '#38bdf8', icon: '🚢', image: null
+  },
+  {
+    tier: 'featured', name: 'Intelligent Video Surveillance', stack: ['Python'],
+    desc: 'Intelligent video surveillance project. See the repository for full details.',
+    url: 'https://github.com/luckylucky110507/Intelligent-video-surveillance.git', demo: null, color: '#14b8a6', icon: '📹', image: null
+  },
+  {
+    tier: 'other', name: 'OMR Evaluation & Scoring System', stack: ['Python'],
+    desc: 'OMR sheet evaluation and scoring system. See the repository for full details.',
+    url: 'https://github.com/luckylucky110507/OMR-Evaluation-and-Scoring-system.git', demo: null, color: '#fb923c', icon: '📝', image: null
+  },
 ]
+
+/* To add a project: append an object above with tier: 'featured' or 'other'.
+   Optional extras for featured cards: problem: '...', features: ['...'], impl: '...' */
+const featuredProjects = aiProjects.filter(p => p.tier === 'featured')
+const otherProjects = aiProjects.filter(p => p.tier === 'other')
 
 /* ── Certifications ── */
 const certifications = [
@@ -412,6 +483,17 @@ const publications = [
 /* ── Experience ── */
 const experience = [
   {
+    title: 'AI Developer Intern', company: 'iGentico', role: 'Agentic AI & Voice AI', period: 'Oct 2026 – Present', current: true,
+    points: [
+      'Working with NVIDIA Tokkio for AI avatar deployment and testing.',
+      'Hands-on exposure to NVIDIA Riva, including ASR, TTS and real-time voice interactions.',
+      'Working with AI Avatars and Digital Humans.',
+      'Docker-based deployment and environment configuration.',
+      'Testing AI avatar functionality and interactive voice sessions.',
+      'Creating AI-powered demos, including industry-specific avatar and Smart Glasses demonstrations.',
+    ]
+  },
+  {
     title: 'AI & ML Intern', company: 'Codomax Digital Solutions, Remote', period: 'Jul 2026 – Aug 2026',
     points: ['Worked on applied machine learning tasks including data preprocessing, model building, and evaluation.', 'Contributed to end-to-end ML workflows under mentorship, translating business problems into model-ready datasets.']
   },
@@ -432,10 +514,10 @@ const experience = [
 /* ── Chatbot QA ── */
 const BOT_QA = [
   { q: /hi|hello|hey/i, a: "Hi there! 👋 I'm Lucky's AI. Ask me about her skills, projects, or how to reach her!" },
-  { q: /skill|tech|stack|know/i, a: "Lucky is skilled in Python, ML, NLP, SQL, Power BI, Java, Scikit-learn, Streamlit, Pandas, NumPy, Git & Jupyter! 🚀" },
-  { q: /project/i, a: "Lucky has 8 AI/ML projects — PDF to eCourse (AI course generator), Fake News Detector (96.81% accuracy), Voice SQL Agent, Movie Recommender, Movie Success Prediction, TalentLens AI (resume intelligence), Heart Disease Risk Prediction & House Price Prediction! 🎯" },
+  { q: /skill|tech|stack|know/i, a: "Lucky is skilled in Python, ML, FastAPI, Docker, NLP, SQL, Power BI, Java, Scikit-learn, Streamlit, Pandas, NumPy, Git & Jupyter! 🚀" },
+  { q: /project/i, a: "Lucky has 11 AI/ML projects — PDF to eCourse (AI course generator), Fake News Detector (96.81% accuracy), Voice SQL Agent, Movie Recommender, Movie Success Prediction, TalentLens AI (resume intelligence), Heart Disease Risk Prediction & House Price Prediction, Titanic Survival, Video Surveillance & OMR Evaluation! 🎯" },
   { q: /edu|college|univer|study/i, a: "B.Tech CSE at IIMT University, Greater Noida (2023–2027) · SGPA: 8.81/10 🎓" },
-  { q: /intern|work|experience/i, a: "Lucky interned at Codomax Digital Solutions (AI & ML, Jul–Aug 2026), CodTech IT Solutions (Full Stack, Aug–Oct 2025) & Codsoft (AI, Jul–Aug 2025) 💼" },
+  { q: /intern|work|experience/i, a: "Lucky is currently an AI Developer Intern at iGentico (Agentic & Voice AI, Oct 2026–Present) and previously interned at Codomax Digital Solutions (AI & ML, Jul–Aug 2026), CodTech IT Solutions (Full Stack, Aug–Oct 2025) & Codsoft (AI, Jul–Aug 2025) 💼" },
   { q: /cert/i, a: "17+ certs from Microsoft, Oracle, Google, IBM, NPTEL, Infosys Springboard, HackerRank, CETPA & more! 📜" },
   { q: /research|paper/i, a: "Co-authored an LSTM paper on Assamese offensive comment detection — IRJCS Vol.12, Dec 2025 📄" },
   { q: /contact|email|phone/i, a: "📧 kumarilucky01437@gmail.com\n📞 +91-7827843321\n📍 Delhi/NCR, India" },
@@ -445,17 +527,99 @@ const BOT_QA = [
   { q: /resume|cv/i, a: "Hit ⬇ Resume in the navbar to download Lucky's CV! 📄" },
   { q: /sgpa|gpa|grade/i, a: "SGPA 8.81/10 at IIMT University 🏆" },
   { q: /python|hackerrank/i, a: "Lucky holds a Golden Badge in Python on HackerRank 🐍" },
-  { q: /learn|currently/i, a: "Currently leveling up in Deep Learning, OpenCV, MLOps, Generative AI & Advanced Computer Vision 📈" },
+  { q: /learn|currently/i, a: "Currently leveling up in OpenCV, MLOps, Computer Vision, Transformers, Reinforcement Learning & LLM Fine-tuning 📈" },
 ]
 function getBotReply(msg) {
   const m = BOT_QA.find(({ q }) => q.test(msg))
   return m ? m.a : "Not sure! Try asking about Lucky's skills, projects, education, certs, or contact info 😊"
 }
 
+/* ── Skill categories (edit here to add/remove skills) ── */
+const skillCategories = [
+  { title: 'Programming Languages', icon: '💻', color: '#3776ab', items: [['Python', '#3776ab'], ['Java', '#e76f00'], ['SQL', '#00aff0']] },
+  { title: 'Frameworks & Technologies', icon: '⚙️', color: '#a855f7', items: [['FastAPI', '#05998b'], ['Machine Learning', '#a855f7'], ['Deep Learning (Fundamentals)', '#ff6b35'], ['Generative AI (Basics)', '#9370db'], ['NLP (Fundamentals)', '#1abc9c']] },
+  { title: 'Tools & Developer Tools', icon: '🛠️', color: '#f05032', items: [['Docker', '#2496ed'], ['Git', '#f05032'], ['GitHub', '#e2e8f0'], ['VS Code', '#007acc'], ['PyCharm', '#21d789'], ['Jupyter Notebook', '#f37626'], ['Postman', '#ff6c37'], ['PuTTY', '#94a3b8']] },
+  { title: 'Platforms & AI Technologies', icon: '☁️', color: '#76b900', items: [['NVIDIA Tokkio', '#76b900'], ['NVIDIA Riva', '#76b900'], ['AWS', '#ff9900'], ['Google Colab', '#f9ab00'], ['Vercel', '#e2e8f0'], ['Render', '#46e3b7'], ['Supabase', '#3ecf8e']] },
+  { title: 'Databases & Data Analytics', icon: '🗄️', color: '#f2c811', items: [['MySQL', '#4479a1'], ['SQLite', '#5fb3e6'], ['Power BI', '#f2c811']] },
+]
+
+function SkillCategories() {
+  return (
+    <div className="skill-cat-grid">
+      {skillCategories.map((c, ci) => (
+        <Reveal key={c.title} delay={ci * 70}>
+          <div className="scc-card" style={{ '--cc': c.color }}>
+            <h3 className="scc-title"><span className="scc-icon" aria-hidden="true">{c.icon}</span>{c.title}</h3>
+            <div className="scc-chips">
+              {c.items.map(([name, color]) => {
+                return (
+                  <span key={name} className="scc-chip" style={{ '--sc': color }}>
+                    <span className="scc-logo">{getSkillLogo(name, color)}</span>
+                    {name}
+                  </span>
+                )
+              })}
+            </div>
+          </div>
+        </Reveal>
+      ))}
+    </div>
+  )
+}
+
+/* ── Project card (featured = large, compact = small) ── */
+function ProjectCard({ p, i, compact }) {
+  const style = { '--accent-glow': p.color + '55', '--accent-border': p.color + '80', '--pi': i }
+  const links = (
+    <div className="project-links">
+      {p.demo && <a href={p.demo} target="_blank" rel="noreferrer" className="proj-btn proj-btn-filled" style={{ background: p.color }}>Live Demo ↗</a>}
+      <a href={p.url} target="_blank" rel="noreferrer" className="proj-btn proj-btn-outline"><span aria-hidden="true">{'</>'}</span> GitHub</a>
+    </div>
+  )
+  const tags = p.stack && p.stack.length > 0 && <div className="project-tags">{p.stack.map(t => <span key={t} className="project-tag">{t}</span>)}</div>
+  if (compact) {
+    return (
+      <Reveal delay={i * 60}>
+        <article className="compact-card" style={style}>
+          <div className="compact-head">
+            <span className="compact-icon" style={{ background: p.color + '22' }}>{p.icon}</span>
+            <h4>{p.name}</h4>
+            {p.demo && <span className="live-badge compact-live"><span className="live-dot" />Live</span>}
+          </div>
+          <p>{p.desc}</p>
+          {tags}
+          {links}
+        </article>
+      </Reveal>
+    )
+  }
+  return (
+    <Reveal delay={i * 80}>
+      <article className="project-card featured-card" style={style}>
+        <div className={`project-thumb ${p.image ? 'has-image' : ''}`} style={!p.image ? { background: `linear-gradient(135deg,${p.color}22,${p.color}42)` } : undefined}>
+          {p.image ? <img src={p.image} alt={p.name} className="project-thumb-img" /> : <span className="project-emoji">{p.icon}</span>}
+          {p.demo && <span className="live-badge"><span className="live-dot" />Live</span>}
+          <div className="thumb-bar"><span style={{ background: '#ef4444' }} /><span style={{ background: '#f59e0b' }} /><span style={{ background: '#22c55e' }} /></div>
+        </div>
+        <div className="project-info">
+          <h3>{p.name}</h3>
+          {p.problem && <p className="fc-block"><strong>Problem:</strong> {p.problem}</p>}
+          <p>{p.desc}</p>
+          {p.features && <ul className="fc-features">{p.features.map(f => <li key={f}>{f}</li>)}</ul>}
+          {p.impl && <p className="fc-block"><strong>Implementation:</strong> {p.impl}</p>}
+          <p className="fc-label">Technologies</p>
+          {tags}
+          {links}
+        </div>
+      </article>
+    </Reveal>
+  )
+}
+
 /* ── Neural network SVG ── */
 function NeuralSkills() {
   return (
-    <svg className="circuit-svg" viewBox="0 0 800 480" fill="none">
+    <svg className="circuit-svg" viewBox="0 0 800 680" fill="none">
       <defs>
         <filter id="gn"><feGaussianBlur stdDeviation="5" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
         <filter id="ge"><feGaussianBlur stdDeviation="2.5" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
@@ -1020,13 +1184,13 @@ export default function App() {
         <Reveal>
           <div className="bio-strip">
             <div className="bio-strip-inner">
-              <div className="bio-stat"><span className="bio-num">8.81</span><span className="bio-label">SGPA</span></div>
+              <div className="bio-stat"><span className="bio-num">8.2</span><span className="bio-label">CGPA</span></div>
               <div className="bio-div" />
-              <div className="bio-stat"><span className="bio-num">8+</span><span className="bio-label">AI/ML Projects</span></div>
+              <div className="bio-stat"><span className="bio-num">11+</span><span className="bio-label">AI/ML Projects</span></div>
               <div className="bio-div" />
               <div className="bio-stat"><span className="bio-num">17+</span><span className="bio-label">Certifications</span></div>
               <div className="bio-div" />
-              <div className="bio-stat"><span className="bio-num">3</span><span className="bio-label">Internships</span></div>
+              <div className="bio-stat"><span className="bio-num">4</span><span className="bio-label">Internships</span></div>
               <div className="bio-div" />
               <div className="bio-stat"><span className="bio-num">1</span><span className="bio-label">Research Paper</span></div>
             </div>
@@ -1038,6 +1202,12 @@ export default function App() {
           <Reveal><p className="section-label">About me</p></Reveal>
           <Reveal delay={80}><h2 className="section-heading">About me</h2></Reveal>
           <div className="about-row">
+            <Reveal className="about-photo-wrap">
+              <figure className="about-photo-frame">
+                <img src={profile.aboutPhoto} alt="Lucky Kumari" className="about-photo"
+                  onError={e => { e.currentTarget.onerror = null; e.currentTarget.src = profile.photo }} />
+              </figure>
+            </Reveal>
             <Reveal delay={120} className="about-left-wrap">
               <div className="about-terminal">
                 <div className="terminal-bar">
@@ -1058,7 +1228,7 @@ export default function App() {
               <div className="about-cards">
                 {[
                   { icon: '🎓', title: 'Education', val: 'B.Tech CSE (2023–2027)' },
-                  { icon: '💻', title: 'Projects', val: '8+ AI/ML Projects' },
+                  { icon: '💻', title: 'Projects', val: '11+ AI/ML Projects' },
                   { icon: '📄', title: 'Research', val: 'Published Research Paper' },
                   { icon: '🏆', title: 'Certifications', val: 'Multiple Industry Certifications' },
                 ].map(c => (
@@ -1081,16 +1251,7 @@ export default function App() {
             <Reveal delay={200}>
               <div className="skills-circuit"><NeuralSkills /></div>
             </Reveal>
-            <div className="skill-badges-grid">
-              {skillsWithRealLogos.map((s, i) => (
-                <Reveal key={s.name} delay={i * 40}>
-                  <div className="skill-badge" style={{ '--sc': s.color, '--sb': s.bg }}>
-                    <div className="skill-badge-logo">{s.logo}</div>
-                    <span className="skill-badge-name">{s.name}</span>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+            <SkillCategories />
           </div>
         </div>
 
@@ -1118,40 +1279,13 @@ export default function App() {
           <Reveal><p className="section-label">Projects</p></Reveal>
           <Reveal delay={80}><h2 className="section-heading">Featured AI/ML Projects</h2></Reveal>
           <Reveal delay={120}><p className="section-sub">Crafted with real data, real models, production-ready code.</p></Reveal>
-          <div className="project-grid">
-            {aiProjects.map((p, i) => (
-              <Reveal key={p.name} delay={i * 60}>
-                <article className="project-card" style={{ '--accent-glow': p.color + '55', '--accent-border': p.color + '80', '--pi': i }}>
-                  <div className={`project-thumb ${p.image ? 'has-image' : ''}`} style={!p.image ? { background: `linear-gradient(135deg,${p.color}22,${p.color}42)` } : undefined}>
-                    {p.image ? (
-                      <img src={p.image} alt={p.name} className="project-thumb-img" />
-                    ) : (
-                      <span className="project-emoji">{p.icon}</span>
-                    )}
-                    {p.demo && <span className="live-badge"><span className="live-dot" />Live</span>}
-                    <div className="thumb-bar">
-                      <span style={{ background: '#ef4444' }} /><span style={{ background: '#f59e0b' }} /><span style={{ background: '#22c55e' }} />
-                    </div>
-                  </div>
-                  <div className="project-info">
-                    <h3>{p.name}</h3><p>{p.desc}</p>
-                    <div className="project-tags">{p.stack.map(t => <span key={t} className="project-tag">{t}</span>)}</div>
-                    <div className="project-links">
-                      {p.demo && (
-                        <a href={p.demo} target="_blank" rel="noreferrer" className="proj-btn proj-btn-filled" style={{ background: p.color }}>
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM5 5h6V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6h-2v6H5V5z" /></svg>
-                          Live Demo
-                        </a>
-                      )}
-                      <a href={p.url} target="_blank" rel="noreferrer" className="proj-btn proj-btn-outline">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" /></svg>
-                        Code
-                      </a>
-                    </div>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+          <h3 className="proj-tier-title"><span className="proj-tier-bar" />Major Projects</h3>
+          <div className="project-grid featured-grid">
+            {featuredProjects.map((p, i) => <ProjectCard key={p.name} p={p} i={i} />)}
+          </div>
+          <h3 className="proj-tier-title proj-tier-other"><span className="proj-tier-bar" />Other AI/ML Projects</h3>
+          <div className="compact-grid">
+            {otherProjects.map((p, i) => <ProjectCard key={p.name} p={p} i={i} compact />)}
           </div>
         </section>
 
@@ -1221,9 +1355,9 @@ export default function App() {
           <div className="exp-list">
             {experience.map((e, i) => (
               <Reveal key={e.title} delay={i * 100}>
-                <div className="exp-card">
+                <div className={`exp-card ${e.current ? 'exp-current' : ''}`}>
                   <div className="exp-header">
-                    <div><h3>{e.title}</h3><p className="exp-company">{e.company}</p></div>
+                    <div><h3>{e.title}{e.current && <span className="exp-now">Current</span>}</h3><p className="exp-company">{e.company}</p>{e.role && <p className="exp-role">{e.role}</p>}</div>
                     <span className="exp-period">{e.period}</span>
                   </div>
                   <ul className="exp-points">{e.points.map((pt, j) => <li key={j}>{pt}</li>)}</ul>
