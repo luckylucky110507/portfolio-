@@ -245,6 +245,13 @@ function getSkillLogo(name, color = '#94a3b8') {
 }
 
 /* ── Neural network nodes ── */
+/* Positions for the 16 extra skills — wrapped around the core cluster (left column, right column, bottom row) */
+const EXTRA_POS = [
+  ...[70, 210, 350, 490, 630].map(y => ({ x: 70, y })),      // left side
+  ...[70, 210, 350, 490, 630].map(y => ({ x: 1130, y })),    // right side
+  ...[260, 420, 580, 740, 900].map(x => ({ x, y: 630 })),    // bottom row
+  { x: 600, y: 520 },                                        // centre-bottom
+]
 const nodes = [
   {
     id: 0, x: 400, y: 220, label: 'Python', color: '#3776ab', bg: '#1e3a5f', r: 74, main: true, dur: '7s', delay: '0s',
@@ -354,13 +361,13 @@ const nodes = [
     ['Riva', 'NVIDIA Riva', '#76b900', '#233500', 20], ['AWS', 'AWS', '#ff9900', '#442b00', 21],
     ['Render', 'Render', '#46e3b7', '#0d3d33', 22], ['Vercel', 'Vercel', '#e2e8f0', '#1e293b', 23],
   ].map(([label, skill, color, bg], i) => ({
-    id: 16 + i, x: 100 + 150 * (i % 5), y: 540 + 140 * Math.floor(i / 5), label, color, bg, r: 52,
+    id: 16 + i, ...EXTRA_POS[i], label, color, bg, r: 52,
     dur: `${5.5 + (i % 5) * 0.7}s`, delay: `${(i % 6) * 0.35}s`, logo: getSkillLogo(skill, color),
   })),
 ]
 
 /* Bigger skill nodes everywhere (lower grid already sized) */
-nodes.forEach(n => { if (n.id < 16) n.r = Math.round(n.r * 1.14) })
+nodes.forEach(n => { if (n.id < 16) { n.r = Math.round(n.r * 1.14); n.x += 200 } })
 
 const nodesWithRealLogos = nodes.map(node => {
   const logoName = node.label === 'ML'
@@ -376,15 +383,12 @@ const edges = [
   [1, 3], [1, 9], [2, 4], [2, 10], [3, 5], [4, 6], [6, 8], [8, 11], [9, 10],
   [0, 12], [8, 12], [11, 12], [0, 13], [13, 14], [13, 11], [14, 6], [14, 2],
   [0, 15], [15, 2], [15, 6],
-  [16, 5], [17, 5], [18, 12], [19, 11], [20, 11], [21, 8], [22, 6], [23, 6],
-  [24, 16], [25, 17], [26, 18], [27, 19], [28, 20], [29, 21], [30, 22], [31, 23], [28, 27],
-  // lower grid — link row neighbours and the node directly below (same as the upper mesh)
-  ...Array.from({ length: 16 }, (_, i) => 16 + i).flatMap(id => {
-    const i = id - 16, out = []
-    if (i % 5 !== 4 && i + 1 < 16) out.push([id, id + 1])
-    if (i + 5 < 16) out.push([id, id + 5])
-    return out
-  }),
+  // outer ring chains: left column, right column, bottom row
+  [16, 17], [17, 18], [18, 19], [19, 20], [21, 22], [22, 23], [23, 24], [24, 25],
+  [26, 27], [27, 28], [28, 29], [29, 30], [20, 26], [25, 30],
+  // ring → core links
+  [16, 1], [17, 1], [17, 3], [18, 3], [19, 5], [20, 5], [21, 2], [22, 2], [22, 4], [23, 4], [24, 6], [25, 6],
+  [26, 5], [27, 12], [28, 11], [29, 8], [30, 6], [31, 11], [31, 12], [31, 8], [31, 28],
 ]
 
 /* ── AI/ML Projects (primary) ── */
@@ -629,7 +633,7 @@ function ProjectCard({ p, i, compact }) {
 /* ── Neural network SVG ── */
 function NeuralSkills() {
   return (
-    <svg className="circuit-svg" viewBox="0 0 800 1040" fill="none">
+    <svg className="circuit-svg" viewBox="0 0 1200 720" fill="none">
       <defs>
         <filter id="gn"><feGaussianBlur stdDeviation="5" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
         <filter id="ge"><feGaussianBlur stdDeviation="2.5" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
