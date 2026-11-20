@@ -11,7 +11,7 @@ const profile = {
     github: 'https://github.com/luckylucky110507',
     instagram: 'https://www.instagram.com/k11_lucky',
     location: 'Delhi/NCR, India',
-    resumeUrl: 'Resume Lucky..pdf', // <- put your resume in /public with this name
+    resumeUrl: 'Resume Lucky.pdf', // <- put your resume in /public with this name
     photo: '/profile.jpeg',
     aboutPhoto: '/about-photo.jpg', // <- put your About-section photo in /public with this name
 }
