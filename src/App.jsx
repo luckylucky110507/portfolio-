@@ -404,7 +404,7 @@ const aiProjects = [
         desc: 'AI-driven anomaly detection platform that learns normal behaviour from data and flags unusual patterns in real time, with an interactive dashboard for monitoring and analysis.', // TODO: real description likho
         url: 'https://github.com/luckylucky110507/Anomatrix', // TODO: sahi GitHub repo link
         demo: null, // TODO: live demo link ho to yahan daalo (string), warna null
-        color: '#06b6d4', icon: '🛰️', image: '/projects/anomatrix.png'
+        color: '#06b6d4', icon: '🛰️', image: '/projects/Anomatrix.png'
     },
     {
         tier: 'other', name: 'Fake News Detection', stack: ['Python', 'Scikit-learn', 'TF-IDF', 'Logistic Regression', 'Streamlit'],
